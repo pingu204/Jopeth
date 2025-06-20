@@ -1,0 +1,220 @@
+{
+    "design": [
+        {
+            "title": "UPD Computer Science Bootcamp 10.0 Merchandise",
+            "type": "commission",
+            "description": "I created t-shirt and lanyard designs for Bootcamp 10.0, an annual event for freshmen of the University of the Philippines-Diliman Department of Computer Science. Working closely with the event organizers, I conceptualized a cohesive brand that captures the aesthetic of computer science students while ensuring that the visual elements used in the design aligned with the theme of the event.",
+            "date": "JANUARY 2025",
+            "cover": "./src/assets/Designs/DCSMerch/cover.png",
+            "modalID": "dcsMerch",
+            "images": [
+                "./src/assets/Designs/DCSMerch/mockup_white.png",
+                "./src/assets/Designs/DCSMerch/mockup_isko.png",
+                "./src/assets/Designs/DCSMerch/mockup_blurple.png",
+                "./src/assets/Designs/DCSMerch/mockup_dcs.png"
+            ],
+            "platforms" : [
+                "illustrator"
+            ],
+            "tags" : [
+                "T-Shirt Design",
+                "HUD Elements",
+                "Technology"
+            ],
+            "links" : [
+                {
+                    "message" : "View on Facebook",
+                    "platform" : "facebook",
+                    "url" : "https://www.facebook.com/dcsbootcamp11.0/posts/pfbid0QjX5G4A1MYBzKCdcpckEFJGNYt1eZd1k9HpjiY6tit4cumtGpA8McvahrRHp86kHl"
+                }
+            ]
+        },
+        {
+            "title": "PSHS-MC Senior Year Batch Shirt | A.Y. 20-21",
+            "type": "commission",
+            "description": "I once participated in a batch shirt design competition during my senior year in high school and was selected as the winner. The shirt's design draws inspiration from vintage and retro illustrations, aiming to evoke a sense of nostalgia.",
+            "date": "JANUARY 2025",
+            "cover": "./src/assets/Designs/G11BatchShirt/shirt.png",
+            "modalID": "g11BatchShirt",
+            "images": [
+                "./src/assets/Designs/G11BatchShirt/details.png"
+            ],
+            "tags" : [
+                "T-Shirt Design",
+                "Vector Illustration",
+                "Vintage-Style Illustration"
+            ],
+            "platforms" : [
+                "illustrator",
+                "photoshop"
+            ],
+            "links" : [
+                {
+                    "platform" : "behance",
+                    "message" : "View Case Study",
+                    "url" : "https://www.behance.net/gallery/223538375/Vibrant-Retro-Inspired-Batch-Shirt-Design"
+                }
+            ]
+        },
+        {
+            "title": "Typography Poster Collection",
+            "type": "",
+            "description": "As someone with an expansive bandwidth for thoughts and ideas, I decided to create posters out of anecdotes in my life. Here I utilize design to evoke a certain feeling, support my faves, and generally anything under the sun!",
+            "date": "JANUARY 2025",
+            "cover": "./src/assets/Designs/Typography Posters/espresso_q.png",
+            "modalID": "typographyPoster",
+            "images": [
+                "./src/assets/Designs/Typography Posters/espresso_q.png",
+                "./src/assets/Designs/Typography Posters/email rant.png",
+                "./src/assets/Designs/Typography Posters/glimpse.png"
+            ],
+            "platforms": [
+                "photoshop"
+            ],
+            "links" : [
+                {
+                    "platform" : "instagram",
+                    "message" : "More on Instagram",
+                    "url" : "https://www.instagram.com/jopeth.psd/"
+                }
+            ],
+            "tags" : [
+                "Poster Design",
+                "Typography"
+            ]
+        },
+        {
+            "title": "Vector Illustrations Collection",
+            "description": "Regina Benitez showcases her final (white) and preliminary (black) evening gowns for the Miss Universe 2024 competition. The shoot takes inspiration from the music video of LISA's 'New Woman'.",
+            "type": "",
+            "date": "JANUARY 2025",
+            "cover": "./src/assets/Designs/Vectors/rainy full.png",
+            "modalID": "vector",
+            "images": [
+                "./src/assets/Designs/Vectors/rainy full.png",
+                "./src/assets/Designs/Vectors/muon_color.png",
+                "./src/assets/Designs/Vectors/haknyeon.png",
+                "./src/assets/Designs/Vectors/yoohyeon.png",
+                "./src/assets/Designs/Vectors/jennie.png"
+            ],
+            "platforms": [
+                "illustrator"
+            ],
+            "links" : [
+                {
+                    "platform" : "instagram",
+                    "message" : "More on Instagram",
+                    "url" : "https://www.instagram.com/jopeth.psd/"
+                }
+            ],
+            "tags" : [
+                "T-Shirt Design",
+                "Vector Illustration",
+                "Vintage-Style Illustration"
+            ]
+        },
+        {
+            "title": "PSHS-MC 'Ang Lagablab' School Paper Spreads | A.Y. 21-22",
+            "type": "Orgwork",
+            "description": "Regina Benitez showcases her final (white) and preliminary (black) evening gowns for the Miss Universe 2024 competition. The shoot takes inspiration from the music video of LISA's 'New Woman'.",
+            "date": "JANUARY 2025",
+            "cover": "./src/assets/Designs/Lagablab/cover.png",
+            "modalID": "angLagablab",
+            "images": [
+                "./src/assets/Designs/Lagablab/B-1.png",
+                "./src/assets/Designs/Lagablab/H-1.png"
+            ],
+            "platforms": [
+                "indesign",
+                "photoshop"
+            ],
+            "tags" : [
+                "T-Shirt Design",
+                "Vector Illustration",
+                "Vintage-Style Illustration"
+            ]
+        },
+        {
+            "title": "Leni-Kiko Jeepney Signs",
+            "type": "",
+            "description": "Regina Benitez showcases her final (white) and preliminary (black) evening gowns for the Miss Universe 2024 competition. The shoot takes inspiration from the music video of LISA's 'New Woman'.",
+            "date": "JANUARY 2025",
+            "cover": "./src/assets/Designs/LeniKiko/cover.png",
+            "modalID": "leniKiko",
+            "images": [
+                "./src/assets/Designs/LeniKiko/cover.png"
+            ],
+            "platforms": [
+                "photoshop",
+                "illustrator"
+            ],
+            "tags" : [
+                "T-Shirt Design",
+                "Vector Illustration",
+                "Vintage-Style Illustration"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "role": "Web Development Intern",
+            "extension":"Admin Section",
+            "institution": "Natural Sciences Research Institute",
+            "year": "2025",
+            "ongoing": true,
+            "img": "https://upd.edu.ph/wp-content/uploads/2020/03/NSRI-logo.png"
+        },
+        {
+            "role": "Junior Student",
+            "extension":"B.S. Computer Science", 
+            "institution": "University of the Philippines - Diliman",
+            "year": "2022-2026",
+            "ongoing": true,
+            "img": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/University_of_The_Philippines_seal.svg/800px-University_of_The_Philippines_seal.svg.png"
+        },
+        {
+            "role": "High School Graduate",
+            "institution": "Philippine Science High School - Main Campus",
+            "year": "2016-2022",
+            "ongoing": false,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/c/c6/PSHS_System_Logo.png"
+        }
+    ],
+    "tech": [
+        {
+            "category": "Programming",
+            "lst": [
+                {"name":"Python", "code":"python"},
+                {"name":"HTML", "code":"html"},
+                {"name":"CSS", "code":"css"},
+                {"name":"JavaScript", "code":"js"},
+                {"name":"C", "code":"c"},
+                {"name":"MySQL", "code":"mysql"},
+                {"name":"Django", "code":"django"},
+                {"name":"Svelte", "code":"svelte"},
+                {"name":"ReactJS", "code":"reactjs"},
+                {"name":"Tailwind", "code":"tailwind"},
+                {"name":"Bootstrap", "code":"bootstrap"},
+                {"name":"Git", "code":"git"}
+            ]
+        },
+        {
+            "category": "Graphic Design",
+            "lst": [
+                {"name":"Adobe Photoshop", "code":"photoshop"},
+                {"name":"Adobe Illustrator", "code":"illustrator"},
+                {"name":"Adobe InDesign", "code":"indesign"},
+                {"name":"Figma", "code":"figma"},
+                {"name":"Canva", "code":"canva"}
+            ]
+        },
+        {
+            "category": "Other Software",
+            "lst": [
+                {"name":"Microsoft Office", "code":"ms"},
+                {"name":"Google Suite", "code":"google-suite"},
+                {"name":"LaTex", "code":"latex"}
+            ]
+        }
+    ]
+}
