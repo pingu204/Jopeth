@@ -7,19 +7,25 @@ import { TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import { ReactTyped } from "react-typed";
 import data from "./data/data.json";
 
+export function getUrl(path) {
+    const imgUrl = new URL("../" + path, import.meta.url).href;
+    return imgUrl;
+}
+
 function App() {
 //   const [count, setCount] = useState(0)
 
+  const home_bg = "bg-[url(" + getUrl("assets/lazy.png") + ")]";
   return (
     <>
-        <div className="">
+        <div className={home_bg}>
             <Header/>
             <div className="relative">
                 <a href="https://www.last.fm/user/bopieee754"><img src="https://lastfm-recently-played.vercel.app/api?user=bopieee754" className="bottom-0 right-0 w-[350px] fixed m-4"/></a>
             </div>
             <div className="w-full pt-[60px] flex flex-col gap-8">
                 <div>
-                    <img src="assets/star_white.png" className="w-[5vw] place-self-center animate-star" alt="star"></img>
+                    <img src={getUrl("assets/star_white.png")} className="w-[5vw] place-self-center animate-star" alt="star"></img>
                 </div>
                 <div className="w-[50%] place-self-center bg-white rounded-2xl px-24 py-20 animate-glow">
                     <div className="text-center">

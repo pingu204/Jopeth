@@ -12,9 +12,6 @@ html {
 }
 
 body {
-    background-image: 
-    linear-gradient(to bottom, rgb(0,0,0,0), rgb(0,0,0,1)),
-    url('assets/lazy.png');
     background-repeat: no-repeat;
     background-size: 300%;
 }

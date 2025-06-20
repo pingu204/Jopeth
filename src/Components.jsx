@@ -3,6 +3,7 @@ import data from "./data/data.json";
 import icons from "./data/icons.json";
 import { Tab, Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { ReactTyped } from "react-typed";
+import { getUrl } from "./App.jsx";
 
 console.log(data);
 
@@ -69,7 +70,7 @@ export function Footer() {
     return (<>
         <div className="w-full border-t-1 border-[rgb(255,255,255,0.3)] text-white mt-8 py-8">
             <div className="w-[40%] place-self-center grid grid-cols-2">
-                <img src="assets/bopie_studios.png" className="w-[150px]" alt="Bopie Studios"></img>
+                <img src={getUrl("assets/bopie_studios.png")} className="w-[150px]" alt="Bopie Studios"></img>
                 <div className="flex flex-col text-end text-lg">
                     <span className="flex flex-row justify-end items-center gap-1 ">
                         Powered by
@@ -122,7 +123,7 @@ export function GalleryItem({entry, index}) {
                                 {
                                     entry.images.map(
                                         (image) =>
-                                        <img src={image} className="w-full"></img>
+                                        <img src={getUrl(image)} className="w-full"></img>
                                     )
                                 }
                                 
@@ -179,7 +180,7 @@ export function GalleryItem({entry, index}) {
 
 export function Thumbnail({img_url, onclick}) {
     return (<>
-        <img onClick={onclick} src={img_url} className="object-cover aspect-video rounded-sm mb-2 grayscale opacity-[0.5] hover:grayscale-0 hover:opacity-[1] hover:-translate-y-1 hover:scale-[1.05] transition duration-300 cursor-pointer bg-gray-200"></img>
+        <img onClick={onclick} src={getUrl(img_url)} className="object-cover aspect-video rounded-sm mb-2 grayscale opacity-[0.5] hover:grayscale-0 hover:opacity-[1] hover:-translate-y-1 hover:scale-[1.05] transition duration-300 cursor-pointer bg-gray-200"></img>
     </>)
 }
 
@@ -233,7 +234,7 @@ export function HistoryItem({role, institution, year, img, ongoing, extension=nu
         <Disclosure>
             <DisclosureButton className="w-full grid grid-cols-[10%_60%_auto] gap-3 cursor-pointer">
                 <div>
-                    <img src={img} className="h-10 aspect-square rounded-md border-1 border-gray-200 p-1" alt={role}></img>
+                    <img src={getUrl(img)} className="h-10 aspect-square rounded-md border-1 border-gray-200 p-1" alt={role}></img>
                 </div>
                 <div className="flex flex-col text-start">
                     <span className="font-medium text-lg">{role} {ongoing && <div aria-label="success" class="status status-success tooltip tooltip-bottom" data-tip="Ongoing"></div>}</span>
