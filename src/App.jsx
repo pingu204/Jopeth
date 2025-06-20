@@ -19,7 +19,7 @@ function App() {
             </div>
             <div className="w-full pt-[60px] flex flex-col gap-8">
                 <div>
-                    <img src="./src/assets/star_white.png" className="w-[5vw] place-self-center animate-star" alt="star"></img>
+                    <img src="./react-start/src/assets/star_white.png" className="w-[5vw] place-self-center animate-star" alt="star"></img>
                 </div>
                 <div className="w-[50%] place-self-center bg-white rounded-2xl px-24 py-20 animate-glow">
                     <div className="text-center">
