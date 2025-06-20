@@ -69,7 +69,7 @@ export function Footer() {
     return (<>
         <div className="w-full border-t-1 border-[rgb(255,255,255,0.3)] text-white mt-8 py-8">
             <div className="w-[40%] place-self-center grid grid-cols-2">
-                <img src="./src/assets/bopie_studios.png" className="w-[150px]" alt="Bopie Studios"></img>
+                <img src="assets/bopie_studios.png" className="w-[150px]" alt="Bopie Studios"></img>
                 <div className="flex flex-col text-end text-lg">
                     <span className="flex flex-row justify-end items-center gap-1 ">
                         Powered by
