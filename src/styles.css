@@ -14,7 +14,7 @@ html {
 body {
     background-image: 
     linear-gradient(to bottom, rgb(0,0,0,0), rgb(0,0,0,1)),
-    url('./react-start/src/assets/lazy.png');
+    url('./src/assets/lazy.png');
     background-repeat: no-repeat;
     background-size: 300%;
 }
