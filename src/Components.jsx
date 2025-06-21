@@ -10,20 +10,20 @@ console.log(data);
 export function Header() {
     return (
         <>
-            <div className="fixed flex flex-row items-center px-16 w-full h-[80px] text-white">
+            <div className="xl:fixed flex flex-row items-center px-4 lg:px-16 w-screen h-[60px] md:h-[80px] text-white">
                 <span className="flex flex-row items-center gap-2">
                     <span className="text-2xl">Jopeth Bryan</span>
-                    <button className="cursor-pointer flex flex-row items-center gap-2 px-2 py-1 tooltip tooltip-bottom rounded-full bg-[rgb(255,255,255,0.3)] border-white/50 text-white inset-shadow-sm/50 inset-shadow-white" data-tip="Check what's new!"><Icon icon="iconoir:spark-solid"/>PORTFOLIO<Icon icon="iconoir:spark-solid"/></button>
+                    <button className="hidden lg:flex cursor-pointer flex-row items-center gap-2 px-2 py-1 tooltip tooltip-bottom rounded-full bg-[rgb(255,255,255,0.3)] border-white/50 text-white inset-shadow-sm/50 inset-shadow-white" data-tip="Check what's new!"><Icon icon="iconoir:spark-solid"/>PORTFOLIO<Icon icon="iconoir:spark-solid"/></button>
                 </span>
                 <div className="flex-grow"></div>
                 
                 <span className="flex flex-row gap-4">
-                    <button onClick={() => {navigator.clipboard.writeText('aaa'); alert('The link to this website has been copied to the clipboard.');}} className="cursor-pointer opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-md tooltip tooltip-bottom" data-tip="Share this website to others!">
-                        Share
+                    <button onClick={() => {navigator.clipboard.writeText('aaa'); alert('The link to this website has been copied to the clipboard.');}} className="cursor-pointer opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md  tooltip tooltip-bottom" data-tip="Share this website to others!">
+                        <span class="hidden md:block">Share</span>
                         <Icon icon="material-symbols:share"/>
                     </button>
-                    <a className="opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-md tooltip tooltip-bottom" data-tip="Take a look at my CV!" href="/" target="_blank">
-                        View CV
+                    <a className="opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md tooltip tooltip-bottom" data-tip="Take a look at my CV!" href="/" target="_blank">
+                        <span class="hidden md:block">View CV</span>
                         <Icon icon="f7:doc-person-fill"/>
                     </a>
                 </span>
@@ -69,25 +69,24 @@ export function MainContainer() {
 export function Footer() {
     return (<>
         <div className="w-full border-t-1 border-[rgb(255,255,255,0.3)] text-white mt-8 py-8">
-            <div className="w-[40%] place-self-center grid grid-cols-2">
-                <img src={getUrl("assets/bopie_studios.png")} className="w-[150px]" alt="Bopie Studios"></img>
-                <div className="flex flex-col text-end text-lg">
-                    <span className="flex flex-row justify-end items-center gap-1 ">
+            <div className="w-[80%] xl:w-[40%] place-self-center grid lg:grid-cols-2 gap-4">
+                <img src={getUrl("assets/bopie_studios.png")} className="w-[150px] place-self-center lg:place-self-start" alt="Bopie Studios"></img>
+                <div className="flex flex-col text-end lg:text-lg">
+                    <span className="flex flex-row justify-center lg:justify-end items-center gap-1 ">
                         Powered by
                         <span className="tooltip tooltip-bottom" data-tip="ReactJS"><Icon icon="grommet-icons:reactjs"/></span>
                         <span className="tooltip tooltip-bottom" data-tip="Tailwind"><Icon icon="teenyicons:tailwind-solid"/></span>
                         <span className="tooltip tooltip-bottom" data-tip="Iconify"><Icon icon="line-md:iconify2-static"/></span>
-                        
                     </span>
-                    <span className="flex flex-row justify-end items-center gap-1"><a className="">View on GitHub <Icon icon="line-md:link" className="inline"/></a></span>
-                    <span className="flex flex-row justify-end items-center gap-1">
+                    <span className="flex flex-row justify-center lg:justify-end items-center gap-1"><a className="">View on GitHub <Icon icon="line-md:link" className="inline"/></a></span>
+                    <span className="flex flex-row justify-center lg:justify-end items-center gap-1">
                         <Icon icon="uil:linkedin"/>
                         <Icon icon="mingcute:github-fill"/>
                         <Icon icon="mdi:email"/>
                     </span>
                 </div>
-                <div className="col-span-2 text-center text-xs">
-                    Copyright © Jopeth Bryan Seda 2025. All Rights Reserved.
+                <div className="lg:col-span-2 text-center text-xs">
+                    Copyright © Jopeth Bryan Seda 2025.<br></br>All Rights Reserved.
                 </div>
             </div>
         </div>
@@ -95,14 +94,19 @@ export function Footer() {
 }
 
 export function TabElem({text}) {
+    const mobileView = {
+        "Graphic Design" : <Icon className="size-[1.5em]" icon="iconoir:design-nib-solid"/>,
+        "Tech" : <Icon className="size-[1.5em]" icon="icon-park-outline:code" />,
+        "About Me" : "About Me"
+    }
     return (<>
-        <Tab className="trans py-2 px-0 rounded-md border-1 border-white data-hover:border-black data-hover:px-4 data-selected:bg-black data-selected:text-white data-selected:px-4 cursor-pointer transition duration-300">{text}</Tab>
+        <Tab className="trans py-2 px-0 rounded-md border-1 border-white data-hover:border-black data-hover:px-4 data-selected:bg-black data-selected:text-white data-selected:px-4 cursor-pointer transition duration-300"><span className="hidden lg:text-xl xl:text-base lg:block">{text}</span><span className="block lg:hidden">{mobileView[text]}</span></Tab>
     </>)
 }
 
 export function Gallery({type}) {
     return(<>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 gap-4">
             {data[type].map(
                 (entry, i) => <GalleryItem entry={entry} index={i}/>
             )}
@@ -117,9 +121,9 @@ export function GalleryItem({entry, index}) {
             <div className="w-full">
                 <Thumbnail onclick={() => document.getElementById(modal_id).show()} img_url={entry.cover}/>
                 <dialog id={modal_id} className="modal">
-                    <div className="modal-box max-w-full w-[70%] h-[80%] backdrop-blur-md bg-[rgb(0,0,0,0.8)] border-1 border-white/20 text-white p-8">
-                        <div className="grid grid-cols-[70%_auto] h-full gap-4">
-                            <div className="h-full overflow-y-auto rounded-sm">
+                    <div className="modal-box max-w-full w-[90%] lg:w-[70%] h-[80%] backdrop-blur-md bg-[rgb(0,0,0,0.8)] border-1 border-white/20 text-white p-4 lg:p-8">
+                        <div className="grid xl:grid-cols-[70%_auto] h-full lg:gap-8 xl:gap-4">
+                            <div className="order-last xl:order-first lg:h-full lg:overflow-y-auto rounded-sm">
                                 {
                                     entry.images.map(
                                         (image) =>
@@ -129,7 +133,7 @@ export function GalleryItem({entry, index}) {
                                 
                             </div>
                             <div className="h-full flex flex-col">
-                                <span className="text-4xl leading-none mb-4">{entry.title}</span>
+                                <span className="text-3xl lg:text-4xl leading-none mb-4">{entry.title}</span>
                                 <span className="text-sm leading-none text-white/50 mb-4">{entry.description}</span>
                                 <div className="flex flex-row gap-1 flex-wrap mb-4">
                                     {
@@ -213,7 +217,7 @@ export function RedirectButton({url, message, platform}) {
 
 export function History({type}) {
     return (<>
-        <div className="w-full">
+        <div className="w-full flex flex-col gap-4">
             {data[type].map(
                 (entry) => 
                         <HistoryItem 
@@ -232,18 +236,19 @@ export function History({type}) {
 export function HistoryItem({role, institution, year, img, ongoing, extension=null}) {
     return (<>
         <Disclosure>
-            <DisclosureButton className="w-full grid grid-cols-[10%_60%_auto] gap-3 cursor-pointer">
+            <DisclosureButton className="w-full grid grid-cols-[10%_auto] md:grid-cols-[10%_60%_auto] gap-3 cursor-pointer">
                 <div>
-                    <img src={getUrl(img)} className="h-10 aspect-square rounded-md border-1 border-gray-200 p-1" alt={role}></img>
+                    <img src={img} className="w-10 aspect-square rounded-md border-1 border-gray-200 p-1" alt={role}></img>
                 </div>
                 <div className="flex flex-col text-start">
-                    <span className="font-medium text-lg">{role} {ongoing && <div aria-label="success" class="status status-success tooltip tooltip-bottom" data-tip="Ongoing"></div>}</span>
-                    {extension && <span className="text-sm">{extension}</span>}
-                    <span className="text-sm truncate">{institution}</span>
+                    <span className="font-medium text-base lg:text-lg">{role} {ongoing && <div aria-label="success" class="status status-success tooltip tooltip-bottom" data-tip="Ongoing"></div>}</span>
+                    <span className="block md:hidden text-xs lg:text-sm">{year}</span>
+                    {extension && <span className="text-xs lg:text-sm">{extension}</span>}
+                    <span className="text-xs lg:text-sm truncate">{institution}</span>
                 </div>
-                <span className="text-sm text-right">{year}</span>
+                <span className="hidden md:block text-xs lg:text-sm text-right">{year}</span>
             </DisclosureButton>
-            <DisclosurePanel className="w-full grid grid-cols-[10%_auto] gap-3 text-sm mb-4">
+            <DisclosurePanel className="w-full grid grid-cols-[10%_auto] gap-3 text-sm">
                 <div></div>
                 <div>
                     ⭐ slayed
@@ -265,7 +270,7 @@ export function HistoryItem({role, institution, year, img, ongoing, extension=nu
 export function TechCategory({category, lst}) {
     return (<>
         <div className="flex flex-col gap-2">
-            <span className="font-medium text-xs uppercase">{category}</span>
+            <span className="font-medium text-sm uppercase">{category}</span>
             <div className="flex flex-row flex-wrap gap-2">
                 {lst.map(
                     (entry) => <span data-tip={entry.name} className="tooltip tooltip-bottom"><Icon icon={icons[entry.code]} className="h-8 w-8"/></span>
