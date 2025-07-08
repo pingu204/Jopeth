@@ -2,7 +2,9 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg' */
 import './styles.css'
-import { Header, Hero, MainContainer, Footer, TabElem, Gallery, History, TechCategory } from './Components.jsx'
+import { useState } from 'react'
+import { Icon } from "@iconify/react";
+import { Header, Hero, MainContainer, Footer, TabElem, Gallery, History, TechCategory, LastFm } from './Components.jsx'
 import { TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import { ReactTyped } from "react-typed";
 import data from "./data/data.json";
@@ -12,20 +14,32 @@ export function getUrl(path) {
     return imgUrl;
 }
 
+export function Loader() {
+    const [display, setDisplay] = useState("block");
+    window.onload = () => {
+        // document.querySelector("#preloader").style.display = "none";
+        console.log("done");
+    };
+    return (<>
+        <div id="preloader" className="fixed w-screen h-screen bg-[white]" style={display=="none" ? "display:none;" : ""}><button className='btn' onClick={setDisplay("none")}></button></div>
+    </>)
+}
+
 function App() {
 //   const [count, setCount] = useState(0)
 
-//   const home_bg = "bg-[url('" + getUrl("assets/lazy.png") + "')] bg-no-repeat bg-size-[300%] h-full";
+//   const home_bg = "bg-[url('" + getUrl("assets/lazy.png") + "')]";
+
+//   const test = "background-image: url(" + getUrl("assets/lazy.png") + ");";
   return (
     <>
-        <div className="bg-[url('https://i.ibb.co/M5cH9ZxC/lazy.png')] bg-repeat-none bg-size-[300%] overflow-x-hidden">
+        {/* <Loader/> */}
+        <div className="bg-repeat-none bg-fixed bg-size-[200%] overflow-x-hidden" style={{backgroundImage : "url(" + getUrl("assets/lazy.png") + ")"}}>
             <Header/>
-            <div className="relative hidden xl:block">
-                <a href="https://www.last.fm/user/bopieee754"><img src="https://lastfm-recently-played.vercel.app/api?user=bopieee754" className="bottom-0 right-0 w-[350px] fixed m-4"/></a>
-            </div>
+            <LastFm/>
             <div className="w-screen flex flex-col gap-8">
                 <div>
-                    <img src={getUrl("assets/star_white.png")} className="w-[15vw] xl:w-[5vw] place-self-center animate-star" alt="star"></img>
+                    <img src={getUrl("assets/star_white.png")} className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star" alt="star"></img>
                 </div>
                 <div className="w-full xl:w-[50%] place-self-center bg-white rounded-2xl px-4 lg:px-24 py-10 lg:py-20 animate-glow">
                     <div className="text-center">
@@ -47,7 +61,7 @@ function App() {
                                 showCursor={true}
                             />
                         </h1>
-                        <p className="text-xs/3 lg:text-base xl:text-sm/6 px-4">
+                        <p className="text-xs/3 text-sm/6 lg:text-base xl:text-base/7 px-4">
                             Learn more about me below and I hope you enjoy exploring Bopie Studios! 
                         </p>
                     </div>
@@ -55,23 +69,23 @@ function App() {
                     <TabGroup>
                         <TabList className="flex flex-row items-center gap-4 font-medium mb-8 text-sm">
                             <span className="tooltip tooltip-right lg:tooltip-bottom" data-tip="Learn more about who I am!"><TabElem text="About Me"/></span>
-                            <div class="flex-grow"></div>
+                            <div className="flex-grow"></div>
                             <span className="text-gray-400 lg:text-xl xl:text-base font-regular">Projects</span>
                             <span className="tooltip tooltip-left lg:tooltip-bottom" data-tip="Some of my design work!"><TabElem text="Graphic Design"/></span>
                             <span className="tooltip tooltip-left lg:tooltip-bottom" data-tip="Some programming projects!"><TabElem text="Tech"/></span>
                         </TabList>
                         <TabPanels>
                             <TabPanel>
-                                <div className="w-full lg:text-base xl:text-sm/6">
+                                <div className="w-full text-sm/6 lg:text-base xl:text-base/7">
                                     <img src="https://cdn.manilastandard.net/wp-content/uploads/2025/02/ahtisa-manalo-miss-universe-quezon-province.jpg" className="w-[200px] aspect-square object-cover rounded-full shadow-xl place-self-center my-4 hover:scale-105"></img>
                                     Hi, I'm Jopeth! I'm a Computer Science junior with a passion for solving problems, whether they challenge my creative thinking or analytical skills. My programming background and experience empower me to develop software that prioritizes user needs and functionality. Additionally, as a graphic designer, I strive to create designs that are not just visually appealing but also purposeful, impactful, and intentional. 
                                 </div>
-                                <div className="w-full my-16">
-                                    <p className="font-light text-4xl/10 lg:text-6xl/15 xl:text-5xl/13 mb-16 text-center ">I'm a Full-Stack <span class="line-through">Overflow</span><br></br>Developer & Designer<br></br>ദി(˵ •̀ ᴗ - ˵ ) ✧</p>
-                                    <p class="lg:text-base xl:text-sm/6 mb-4">
+                                <div className="w-full mt-16 mb-8">
+                                    <p className="font-light text-4xl/10 lg:text-6xl/15 xl:text-5xl/13 mb-16 text-center ">I'm a Full-Stack <span className="line-through">Overflow</span><br></br>Developer & Designer<br></br>ദി(˵ •̀ ᴗ - ˵ ) ✧</p>
+                                    <p className="text-sm/6 lg:text-base xl:text-base/7 mb-4">
                                         Although I was only formally introduced to programming in high school, my sheer love for numbers and computers contributed to my acquired interest in computer science. However, as someone with tons of idea at his disposal, graphic design also became an outlet for my creativity.
                                     </p>
-                                    <p class="lg:text-base xl:text-sm/6">
+                                    <p className="text-sm/6 lg:text-base xl:text-base/7">
                                         I find fulfillment in exploring the union between these two passions of mine, hence making software development and/or engineering as my dream career. Of course, I still have a lot of room to grow, but check out some of my current credentials below!
                                     </p>
                                 </div>
@@ -83,23 +97,28 @@ function App() {
                                     <div className="font-bold place-content-start py-4">Technologies I Use</div>
                                     <div className="py-4">
                                         <div className="grid grid-cols-2 gap-4">
-                                            {data["tech"].map(
+                                            {data["tech_stack"].map(
                                                 (entry) => <TechCategory category={entry.category} lst={entry.lst}/>
                                             )}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="w-full  my-16">
-                                    <p className="font-light lg:text-6xl/15 xl:text-5xl/13 mb-4 text-center">Igniting Ideas<br></br>From Spark to Finish<br></br>. ݁₊ ⊹ . ݁˖ . ݁</p>
-                                    <p className="lg:text-base xl:text-sm/6 mb-4">
+                                    <p className="font-light text-4xl/10 lg:text-6xl/15 xl:text-5xl/13 mb-4 text-center">Igniting Ideas<br></br>From Spark to Finish<br></br>. ݁₊ ⊹ . ݁˖ . ݁</p>
+                                    <p className="text-sm/6 lg:text-base xl:text-base/7 mb-4">
                                         A recurring motif in this space is the presence of sparkles. I use it to embody my passion in transforming ideas into tangible solutions, be it in software or visual form, hence the birth of this portfolio! Sparks of thought bring me joy, and I find most fulfillment in igniting these sparks into something more.
                                     </p>
-                                    <p class="lg:text-base xl:text-sm/6">
+                                    <p className="text-sm/6 lg:text-base xl:text-base/7 mb-4">
                                         Let's connect to see how can we can ignite ˗ˏˋ sparks ˎˊ˗ together.
                                     </p>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <a className="tooltip tooltip-bottom" data-tip="This takes you to my LinkedIn profile." href={data["socials"]["linkedin"]} target="_blank"><button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">Connect on LinkedIn<span className="flex-grow"></span><Icon icon="ri:linkedin-fill" className="size-[1.5em]"/></button></a>
+                                        <a className="tooltip tooltip-bottom" data-tip="This takes you to a new window." href={data["socials"]["personal-mail"]} target="_blank"><button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">Send me an E-mail<span className="flex-grow"></span><Icon icon="mdi:gmail" className="size-[1.5em]"/></button></a>
+                                    </div>
                                 </div>
                             </TabPanel>
                             <TabPanel><Gallery type="design"/></TabPanel>
+                            <TabPanel><Gallery type="tech"/></TabPanel>
                         </TabPanels>
                     </TabGroup>
                 </div>

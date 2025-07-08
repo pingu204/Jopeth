@@ -13,7 +13,7 @@ export function Header() {
             <div className="xl:fixed flex flex-row items-center px-4 lg:px-16 w-screen h-[60px] md:h-[80px] text-white">
                 <span className="flex flex-row items-center gap-2">
                     <span className="text-2xl">Jopeth Bryan</span>
-                    <button className="hidden lg:flex cursor-pointer flex-row items-center gap-2 px-2 py-1 tooltip tooltip-bottom rounded-full bg-[rgb(255,255,255,0.3)] border-white/50 text-white inset-shadow-sm/50 inset-shadow-white" data-tip="Check what's new!"><Icon icon="iconoir:spark-solid"/>PORTFOLIO<Icon icon="iconoir:spark-solid"/></button>
+                    <button className="hidden lg:flex cursor-pointer flex-row items-center gap-2 px-2 py-1 tooltip tooltip-bottom rounded-full bg-[rgb(255,255,255,0.3)] border-white/50 text-white inset-shadow-sm/50 inset-shadow-white backdrop-blur-lg" data-tip="Check what's new!"><Icon icon="iconoir:spark-solid"/>PORTFOLIO<Icon icon="iconoir:spark-solid"/></button>
                 </span>
                 <div className="flex-grow"></div>
                 
@@ -22,7 +22,7 @@ export function Header() {
                         <span class="hidden md:block">Share</span>
                         <Icon icon="material-symbols:share"/>
                     </button>
-                    <a className="opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md tooltip tooltip-bottom" data-tip="Take a look at my CV!" href="/" target="_blank">
+                    <a className="opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md tooltip tooltip-bottom" data-tip="Take a look at my CV!" href={getUrl("assets/CV_JopethBryanSeda.pdf")} target="_blank">
                         <span class="hidden md:block">View CV</span>
                         <Icon icon="f7:doc-person-fill"/>
                     </a>
@@ -78,11 +78,11 @@ export function Footer() {
                         <span className="tooltip tooltip-bottom" data-tip="Tailwind"><Icon icon="teenyicons:tailwind-solid"/></span>
                         <span className="tooltip tooltip-bottom" data-tip="Iconify"><Icon icon="line-md:iconify2-static"/></span>
                     </span>
-                    <span className="flex flex-row justify-center lg:justify-end items-center gap-1"><a className="">View on GitHub <Icon icon="line-md:link" className="inline"/></a></span>
+                    <span className="flex flex-row justify-center lg:justify-end items-center gap-1"><a href={data["socials"]["repo"]} className="tooltip tooltip-bottom" data-tip="This takes you this project's repository.">View on GitHub <Icon icon="line-md:link" className="inline"/></a></span>
                     <span className="flex flex-row justify-center lg:justify-end items-center gap-1">
-                        <Icon icon="uil:linkedin"/>
-                        <Icon icon="mingcute:github-fill"/>
-                        <Icon icon="mdi:email"/>
+                        <a href={data["socials"]["linkedin"]} target="_blank" className="tooltip tooltip-bottom" data-tip="LinkedIn"><Icon icon="uil:linkedin"/></a>
+                        <a href={data["socials"]["github"]} target="_blank" className="tooltip tooltip-bottom" data-tip="GitHub"><Icon icon="mingcute:github-fill"/></a>
+                        <a href={data["socials"]["up-mail"]} target="_blank" className="tooltip tooltip-bottom" data-tip="E-mail"><Icon icon="mdi:email"/></a>
                     </span>
                 </div>
                 <div className="lg:col-span-2 text-center text-xs">
@@ -120,56 +120,7 @@ export function GalleryItem({entry, index}) {
         <div>
             <div className="w-full">
                 <Thumbnail onclick={() => document.getElementById(modal_id).show()} img_url={entry.cover}/>
-                <dialog id={modal_id} className="modal">
-                    <div className="modal-box max-w-full w-[90%] lg:w-[70%] h-[80%] backdrop-blur-md bg-[rgb(0,0,0,0.8)] border-1 border-white/20 text-white p-4 lg:p-8">
-                        <div className="grid xl:grid-cols-[70%_auto] h-full lg:gap-8 xl:gap-4">
-                            <div className="order-last xl:order-first lg:h-full lg:overflow-y-auto rounded-sm">
-                                {
-                                    entry.images.map(
-                                        (image) =>
-                                        <img src={getUrl(image)} className="w-full"></img>
-                                    )
-                                }
-                                
-                            </div>
-                            <div className="h-full flex flex-col">
-                                <span className="text-3xl lg:text-4xl leading-none mb-4">{entry.title}</span>
-                                <span className="text-sm leading-none text-white/50 mb-4">{entry.description}</span>
-                                <div className="flex flex-row gap-1 flex-wrap mb-4">
-                                    {
-                                        entry.tags.map(
-                                            (tag) =>
-                                            <Badge text={tag}/>
-                                        )
-                                    }
-                                </div>
-                                {entry.platforms && <span className="text-sm uppercase font-bold mb-2">SOFTWARE</span>}
-                                <div className="text-4xl flex flex-row gap-1 mb-2">
-                                    {   
-                                        entry.platforms &&
-                                        entry.platforms.map(
-                                            (platform) => 
-                                            <span className="tooltip tooltip-bottom capitalize" data-tip={platform}>
-                                                <Icon icon={icons[platform]}/>
-                                            </span>
-                                        )
-                                        
-                                    }
-                                </div>
-                                <div className="flex-grow"></div>
-                                <div>
-                                    {entry.links && entry.links.map(
-                                        (link) =>
-                                        <RedirectButton url={link.url} message={link.message} platform={link.platform}/>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <form method="dialog" className="modal-backdrop">
-                        <button>close</button>
-                    </form>
-                </dialog>
+                <GalleryModal modal_id={modal_id} entry={entry}/>
                 <span className="text-xl flex flex-row gap-1 mb-2">
                     {entry.platforms && entry.platforms.map(
                         (platform) => <Icon icon={icons[platform]}/>
@@ -179,6 +130,61 @@ export function GalleryItem({entry, index}) {
                 <span className="tracking-tight text-xl leading-none">{entry.title}</span>
             </div>
         </div>
+    </>)
+}
+
+export function GalleryModal({modal_id, entry}) {
+    return (<>
+        <dialog id={modal_id} className="modal">
+            <div className="modal-box max-w-full w-[90%] lg:w-[70%] h-[80%] backdrop-blur-md bg-[rgb(0,0,0,0.8)] border-1 border-white/20 text-white p-4 lg:p-8">
+                <div className="grid xl:grid-cols-[70%_auto] h-full gap-4 lg:gap-8 xl:gap-4 overflow-x-visible">
+                    <div className="order-last xl:order-first lg:h-full lg:overflow-y-auto rounded-sm">
+                        {
+                            entry.images.map(
+                                (image) =>
+                                <img src={getUrl(image)} className="w-full"></img>
+                            )
+                        }
+                        
+                    </div>
+                    <div className="h-full flex flex-col gap-4 overflow-x-visible lg:overflow-y-auto">
+                        <span className="text-3xl lg:text-4xl leading-none">{entry.title}</span>
+                        <p className="text-sm/4 text-white/50 text-wrap whitespace-pre-line">{entry.description}</p>
+                        <div className="flex flex-row gap-1 flex-wrap">
+                            {
+                                entry.tags.map(
+                                    (tag) =>
+                                    <Badge text={tag}/>
+                                )
+                            }
+                        </div>
+                        {entry.platforms && <span className="text-sm uppercase font-bold">SOFTWARE</span>}
+                        <div className="text-3xl flex flex-row gap-2 mb-2">
+                            {   
+                                entry.platforms &&
+                                entry.platforms.map(
+                                    (platform) => 
+                                    <span className="tooltip tooltip-bottom capitalize" data-tip={platform}>
+                                        <Icon icon={icons[platform]}/>
+                                    </span>
+                                )
+                                
+                            }
+                        </div>
+                        <div className="flex-grow"></div>
+                        <div className="flex flex-col gap-2">
+                            {entry.links && entry.links.map(
+                                (link) =>
+                                <RedirectButton url={link.url} message={link.message} platform={link.platform}/>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
     </>)
 }
 
@@ -209,7 +215,7 @@ export function RedirectButton({url, message, platform}) {
                 <span>{message}</span>
                 <Icon icon="solar:arrow-right-linear"/>
                 <div className="flex-grow"></div>
-                <Icon icon={icons[platform]}/>
+                <Icon icon={platform ? icons[platform] : "streamline-plump:web-remix"}/>
             </button>
         </a>
     </>);
@@ -251,7 +257,7 @@ export function HistoryItem({role, institution, year, img, ongoing, extension=nu
             <DisclosurePanel className="w-full grid grid-cols-[10%_auto] gap-3 text-sm">
                 <div></div>
                 <div>
-                    ⭐ slayed
+                    Well yes!
                 </div>
             </DisclosurePanel>
         </Disclosure>
@@ -276,6 +282,14 @@ export function TechCategory({category, lst}) {
                     (entry) => <span data-tip={entry.name} className="tooltip tooltip-bottom"><Icon icon={icons[entry.code]} className="h-8 w-8"/></span>
                 )}
             </div> 
+        </div>
+    </>)
+}
+
+export function LastFm() {
+    return (<>
+        <div className="relative hidden xl:block">
+            <a href="https://www.last.fm/user/bopieee754"><img src="https://lastfm-recently-played.vercel.app/api?user=bopieee754" className="bottom-0 right-0 w-[300px] fixed m-4 tooltip tooltip-left" data-tip="Visit my Last.fm Page!"/></a>
         </div>
     </>)
 }
