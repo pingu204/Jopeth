@@ -18,7 +18,7 @@ export function Header() {
                 <div className="flex-grow"></div>
                 
                 <span className="flex flex-row gap-4">
-                    <button onClick={() => {navigator.clipboard.writeText('aaa'); alert('The link to this website has been copied to the clipboard.');}} className="cursor-pointer opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md  tooltip tooltip-bottom" data-tip="Share this website to others!">
+                    <button onClick={() => {navigator.clipboard.writeText('https://pingu204.github.io/Jopeth/'); alert('The link to this website has been copied to the clipboard.');}} className="cursor-pointer opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md  tooltip tooltip-bottom" data-tip="Share this website to others!">
                         <span class="hidden md:block">Share</span>
                         <Icon icon="material-symbols:share"/>
                     </button>
@@ -106,7 +106,7 @@ export function TabElem({text}) {
 
 export function Gallery({type}) {
     return(<>
-        <div className="grid lg:grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 gap-8">
             {data[type].map(
                 (entry, i) => <GalleryItem entry={entry} index={i}/>
             )}
@@ -136,8 +136,8 @@ export function GalleryItem({entry, index}) {
 export function GalleryModal({modal_id, entry}) {
     return (<>
         <dialog id={modal_id} className="modal">
-            <div className="modal-box max-w-full w-[90%] lg:w-[70%] h-[80%] backdrop-blur-md bg-[rgb(0,0,0,0.8)] border-1 border-white/20 text-white p-4 lg:p-8">
-                <div className="grid xl:grid-cols-[70%_auto] h-full gap-4 lg:gap-8 xl:gap-4 overflow-x-visible">
+            <div className="modal-box max-w-full w-[90%] lg:w-[70%] h-[80%] backdrop-blur-md bg-[rgb(0,0,0,0.8)] border-1 border-white/20 text-white p-6 lg:p-8">
+                <div className="grid xl:grid-cols-[70%_auto] h-full gap-4 lg:gap-8 xl:gap-4 overflow-x-visible overflow-y-auto">
                     <div className="order-last xl:order-first lg:h-full lg:overflow-y-auto rounded-sm">
                         {
                             entry.images.map(
@@ -145,7 +145,6 @@ export function GalleryModal({modal_id, entry}) {
                                 <img src={getUrl(image)} className="w-full"></img>
                             )
                         }
-                        
                     </div>
                     <div className="h-full flex flex-col gap-4 overflow-x-visible lg:overflow-y-auto">
                         <span className="text-3xl lg:text-4xl leading-none">{entry.title}</span>
@@ -288,7 +287,7 @@ export function TechCategory({category, lst}) {
 
 export function LastFm() {
     return (<>
-        <div className="relative hidden xl:block">
+        <div className="relative hidden xl:flex xl:flex-col">
             <a href="https://www.last.fm/user/bopieee754"><img src="https://lastfm-recently-played.vercel.app/api?user=bopieee754" className="bottom-0 right-0 w-[300px] fixed m-4 tooltip tooltip-left" data-tip="Visit my Last.fm Page!"/></a>
         </div>
     </>)

@@ -26,11 +26,6 @@ export function Loader() {
 }
 
 function App() {
-//   const [count, setCount] = useState(0)
-
-//   const home_bg = "bg-[url('" + getUrl("assets/lazy.png") + "')]";
-
-//   const test = "background-image: url(" + getUrl("assets/lazy.png") + ");";
   return (
     <>
         {/* <Loader/> */}
@@ -39,16 +34,16 @@ function App() {
             <LastFm/>
             <div className="w-screen flex flex-col gap-8">
                 <div>
-                    <img src={getUrl("assets/star_white.png")} className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star" alt="star"></img>
+                    <img src={getUrl("assets/plumbob.gif")} className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star" alt="star"></img>
                 </div>
-                <div className="w-full xl:w-[50%] place-self-center bg-white rounded-2xl px-4 lg:px-24 py-10 lg:py-20 animate-glow">
+                <div className="w-full xl:w-[50%] place-self-center bg-white rounded-2xl px-8 lg:px-24 py-10 lg:py-20 animate-glow">
                     <div className="text-center">
                         <h1 className="text-3xl lg:text-6xl xl:text-5xl font-regular mb-6">
                             <ReactTyped
                                 strings={[
                                     "Kumusta, ako si Jopeth!", 
                                     "Some call me Bopeth,",
-                                    "which then became Bopie",
+                                    "which became Bopie",
                                     "hence the birth of...",
                                     "Bopie Studios!",
                                     "⸜(｡˃ ᵕ ˂ )⸝♡",
@@ -61,7 +56,7 @@ function App() {
                                 showCursor={true}
                             />
                         </h1>
-                        <p className="text-xs/3 text-sm/6 lg:text-base xl:text-base/7 px-4">
+                        <p className="text-sm/6 lg:text-base xl:text-base/7 px-4">
                             Learn more about me below and I hope you enjoy exploring Bopie Studios! 
                         </p>
                     </div>
@@ -77,7 +72,7 @@ function App() {
                         <TabPanels>
                             <TabPanel>
                                 <div className="w-full text-sm/6 lg:text-base xl:text-base/7">
-                                    <img src="https://cdn.manilastandard.net/wp-content/uploads/2025/02/ahtisa-manalo-miss-universe-quezon-province.jpg" className="w-[200px] aspect-square object-cover rounded-full shadow-xl place-self-center my-4 hover:scale-105"></img>
+                                    <img src={getUrl("assets/profile.png")} className="w-[200px] aspect-square object-cover rounded-full shadow-xl place-self-center my-4 hover:scale-105 hover:shadow-lg hover:shadow-[#1bb133]/20"></img>
                                     Hi, I'm Jopeth! I'm a Computer Science junior with a passion for solving problems, whether they challenge my creative thinking or analytical skills. My programming background and experience empower me to develop software that prioritizes user needs and functionality. Additionally, as a graphic designer, I strive to create designs that are not just visually appealing but also purposeful, impactful, and intentional. 
                                 </div>
                                 <div className="w-full mt-16 mb-8">
@@ -111,7 +106,7 @@ function App() {
                                     <p className="text-sm/6 lg:text-base xl:text-base/7 mb-4">
                                         Let's connect to see how can we can ignite ˗ˏˋ sparks ˎˊ˗ together.
                                     </p>
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid lg:grid-cols-2 gap-4">
                                         <a className="tooltip tooltip-bottom" data-tip="This takes you to my LinkedIn profile." href={data["socials"]["linkedin"]} target="_blank"><button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">Connect on LinkedIn<span className="flex-grow"></span><Icon icon="ri:linkedin-fill" className="size-[1.5em]"/></button></a>
                                         <a className="tooltip tooltip-bottom" data-tip="This takes you to a new window." href={data["socials"]["personal-mail"]} target="_blank"><button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">Send me an E-mail<span className="flex-grow"></span><Icon icon="mdi:gmail" className="size-[1.5em]"/></button></a>
                                     </div>
