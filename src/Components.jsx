@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Icon } from "@iconify/react";
 import data from "./data/data.json";
 import icons from "./data/icons.json";
@@ -66,9 +67,25 @@ export function MainContainer() {
     </>)
 }
 
+export function Intro() {
+    const [idx, setIdx] = useState(0);
+
+    const names = ["Jopeth", "Bopeth", "Bopie", "not Joseph"];
+
+    function callback(){
+        setIdx((idx + 1) % names.length);
+    }
+
+    return (<>
+        <div>
+            Hi, I'm <span className="font-bold cursor-pointer" onClick={callback}>{names[idx]}</span>! I'm a Computer Science junior with a passion for solving problems, whether they challenge my creative thinking or analytical skills. My programming background and experience empower me to develop software that prioritizes user needs and functionality. Additionally, as a graphic designer, I strive to create designs that are not just visually appealing but also purposeful, impactful, and intentional.
+        </div>
+    </>)
+}
+
 export function Footer() {
     return (<>
-        <div className="w-full border-t-1 border-[rgb(255,255,255,0.3)] text-white mt-8 py-8">
+        <div className="w-full flex flex-col border-t-1 border-[rgb(255,255,255,0.3)] text-white mt-8 py-8">
             <div className="w-[80%] xl:w-[40%] place-self-center grid lg:grid-cols-2 gap-4">
                 <img src={getUrl("assets/bopie_studios.png")} className="w-[150px] place-self-center lg:place-self-start" alt="Bopie Studios"></img>
                 <div className="flex flex-col text-end lg:text-lg">

@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg' */
 import './styles.css'
 import { useState } from 'react'
 import { Icon } from "@iconify/react";
-import { Header, Hero, MainContainer, Footer, TabElem, Gallery, History, TechCategory, LastFm } from './Components.jsx'
+import { Header, Intro, Hero, MainContainer, Footer, TabElem, Gallery, History, TechCategory, LastFm } from './Components.jsx'
 import { TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import { ReactTyped } from "react-typed";
 import data from "./data/data.json";
@@ -33,10 +33,8 @@ function App() {
             <Header/>
             <LastFm/>
             <div className="w-screen flex flex-col gap-8">
-                <div>
-                    <img src={getUrl("assets/plumbob.gif")} className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star" alt="star"></img>
-                </div>
-                <div className="w-full xl:w-[50%] place-self-center bg-white rounded-2xl px-8 lg:px-24 py-10 lg:py-20 animate-glow">
+                <img src={getUrl("assets/plumbob.gif")} className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star" alt="star"></img>
+                <div className="w-full xl:w-[50%] place-self-center bg-white rounded-2xl px-8 lg:px-24 py-10 lg:py-20 animate-glow flex flex-col">
                     <div className="text-center">
                         <h1 className="text-3xl lg:text-6xl xl:text-5xl font-regular mb-6">
                             <ReactTyped
@@ -71,9 +69,9 @@ function App() {
                         </TabList>
                         <TabPanels>
                             <TabPanel>
-                                <div className="w-full text-sm/6 lg:text-base xl:text-base/7">
+                                <div className="w-full flex flex-col text-sm/6 lg:text-base xl:text-base/7">
                                     <img src={getUrl("assets/profile.png")} className="w-[200px] aspect-square object-cover rounded-full shadow-xl place-self-center my-4 hover:scale-105 hover:shadow-lg hover:shadow-[#1bb133]/20"></img>
-                                    Hi, I'm Jopeth! I'm a Computer Science junior with a passion for solving problems, whether they challenge my creative thinking or analytical skills. My programming background and experience empower me to develop software that prioritizes user needs and functionality. Additionally, as a graphic designer, I strive to create designs that are not just visually appealing but also purposeful, impactful, and intentional. 
+                                    <Intro/>
                                 </div>
                                 <div className="w-full mt-16 mb-8">
                                     <p className="font-light text-4xl/10 lg:text-6xl/15 xl:text-5xl/13 mb-16 text-center ">I'm a Full-Stack <span className="line-through">Overflow</span><br></br>Developer & Designer<br></br>ദി(˵ •̀ ᴗ - ˵ ) ✧</p>
@@ -107,7 +105,7 @@ function App() {
                                         Let's connect to see how can we can ignite ˗ˏˋ sparks ˎˊ˗ together.
                                     </p>
                                     <div className="grid lg:grid-cols-2 gap-4">
-                                        <a className="tooltip tooltip-bottom" data-tip="This takes you to my LinkedIn profile." href={data["socials"]["linkedin"]} target="_blank"><button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">Connect on LinkedIn<span className="flex-grow"></span><Icon icon="ri:linkedin-fill" className="size-[1.5em]"/></button></a>
+                                        <a className="tooltip tooltip-bottom" data-tip="This takes you to my LinkedIn profile." href={data["socials"]["linkedin"]} target="_blank"><button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">Connect with Me<span className="flex-grow"></span><Icon icon="ri:linkedin-fill" className="size-[1.5em]"/></button></a>
                                         <a className="tooltip tooltip-bottom" data-tip="This takes you to a new window." href={data["socials"]["personal-mail"]} target="_blank"><button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">Send me an E-mail<span className="flex-grow"></span><Icon icon="mdi:gmail" className="size-[1.5em]"/></button></a>
                                     </div>
                                 </div>
