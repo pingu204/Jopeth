@@ -9,12 +9,21 @@ import { getUrl } from "./App.jsx";
 console.log(data);
 
 export function Header() {
+    const roles = [
+        "Developer",
+        "Designer",
+        "Hacipupu",
+        "Ahtisa Manalo"
+    ]
+
+    const [idx, setIdx] = useState(0);
+
     return (
         <>
             <div className="xl:fixed flex flex-row items-center px-4 lg:px-16 w-screen h-[60px] md:h-[80px] text-white">
                 <span className="flex flex-row items-center gap-2">
                     <span className="text-2xl">Jopeth Bryan</span>
-                    <button className="hidden lg:flex cursor-pointer flex-row items-center gap-2 px-2 py-1 tooltip tooltip-bottom rounded-full bg-[rgb(255,255,255,0.3)] border-white/50 text-white inset-shadow-sm/50 inset-shadow-white backdrop-blur-lg" data-tip="Check what's new!"><Icon icon="iconoir:spark-solid"/>PORTFOLIO<Icon icon="iconoir:spark-solid"/></button>
+                    <button className="hidden lg:flex cursor-pointer flex-row items-center gap-2 px-2 py-1 tooltip tooltip-bottom rounded-full bg-[rgb(255,255,255,0.3)] border-white/50 text-white inset-shadow-sm/50 inset-shadow-white backdrop-blur-lg" onClick={() => {setIdx((idx + 1) % roles.length)}} data-tip={roles[idx] == "Ahtisa Manalo" ? "Huy! Ano raw?" : "Tap to know more!"}><Icon icon="iconoir:spark-solid"/>{roles[idx]}<Icon icon="iconoir:spark-solid"/></button>
                 </span>
                 <div className="flex-grow"></div>
                 
@@ -23,7 +32,7 @@ export function Header() {
                         <span class="hidden md:block">Share</span>
                         <Icon icon="material-symbols:share"/>
                     </button>
-                    <a className="opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md tooltip tooltip-bottom" data-tip="Take a look at my CV!" href={getUrl("assets/CV_JopethBryanSeda.pdf")} target="_blank">
+                    <a className="opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md tooltip tooltip-bottom" data-tip="Take a look at my CV!" href={data["socials"]["cv"]} target="_blank">
                         <span class="hidden md:block">View CV</span>
                         <Icon icon="f7:doc-person-fill"/>
                     </a>
@@ -324,18 +333,15 @@ export function History({type}) {
 }
 
 export function HistoryItem({role, institution, year, img, ongoing, extension=null}) {
-    const {isOpen, setIsOpen} = useState(false);
 
     return (<>
         <Disclosure>
-            {({ open }) => (
-            <>
             <DisclosureButton className="w-full grid grid-cols-[10%_auto] md:grid-cols-[10%_60%_auto] gap-3 cursor-pointer">
                 <div>
                     <img src={img} className="w-10 aspect-square rounded-md border-1 border-gray-200 p-1" alt={role}></img>
                 </div>
                 <div className="flex flex-col text-start">
-                    <span className="font-medium text-base lg:text-lg">{open ? "adwa" : "aaaa"} {role} {ongoing && <div aria-label="success" class="status status-success tooltip tooltip-bottom" data-tip="Ongoing"></div>}</span>
+                    <span className="font-medium text-base lg:text-lg">{role} {ongoing && <div aria-label="success" class="status status-success tooltip tooltip-bottom" data-tip="Ongoing"></div>}</span>
                     <span className="block md:hidden text-xs lg:text-sm">{year}</span>
                     {extension && <span className="text-xs lg:text-sm">{extension}</span>}
                     <span className="text-xs lg:text-sm truncate">{institution}</span>
@@ -348,8 +354,6 @@ export function HistoryItem({role, institution, year, img, ongoing, extension=nu
                     Well yes!
                 </div>
             </DisclosurePanel>
-            </>
-            )}
         </Disclosure>
         {/* <div>
             <img src={img} className="h-10 w-10 rounded-md border-1 border-gray-200 p-1" alt={role}></img>
