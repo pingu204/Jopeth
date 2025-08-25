@@ -5,7 +5,8 @@
         "up-mail" : "mailto:jbseda@up.edu.ph",
         "personal-mail" : "mailto:sedajopeth@gmail.com",
         "github" : "https://github.com/pingu204",
-        "repo" : "https://github.com/pingu204/Jopeth"
+        "repo" : "https://github.com/pingu204/Jopeth",
+        "cv" : "https://drive.google.com/drive/folders/1Vpj_t7dQ7SGKeTkMfC-mzY63p1waywXt?usp=sharing"
     },
     "design": [
         {
@@ -25,7 +26,11 @@
                 "illustrator"
             ],
             "tags" : [
-                "T-Shirt Design",
+                "Merchandise Design",
+                "Illustration",
+                "Typography",
+                "Branding",
+                "Vector Art",
                 "HUD Elements",
                 "Technology"
             ],
@@ -48,8 +53,8 @@
                 "assets/Designs/G11BatchShirt/details.png"
             ],
             "tags" : [
-                "T-Shirt Design",
-                "Vector Illustration",
+                "Merchandise Design",
+                "Vector Art",
                 "Vintage-Style Illustration"
             ],
             "platforms" : [
@@ -88,7 +93,8 @@
             ],
             "tags" : [
                 "Poster Design",
-                "Typography"
+                "Typography",
+                "Digital Art"
             ]
         },
         {
@@ -116,9 +122,8 @@
                 }
             ],
             "tags" : [
-                "T-Shirt Design",
-                "Vector Illustration",
-                "Vintage-Style Illustration"
+                "Vector Art",
+                "Digital Art"
             ]
         },
         {
@@ -137,9 +142,9 @@
                 "photoshop"
             ],
             "tags" : [
-                "T-Shirt Design",
-                "Vector Illustration",
-                "Vintage-Style Illustration"
+                "Print Design",
+                "Typography",
+                "Digital Art"
             ]
         },
         {
@@ -157,11 +162,23 @@
                 "illustrator"
             ],
             "tags" : [
-                "T-Shirt Design",
-                "Vector Illustration",
-                "Vintage-Style Illustration"
+                "Digital Art",
+                "Typography",
+                "Poster Design",
+                "Print Design"
             ]
         }
+    ],
+    "designTags" : [
+        "Merchandise Design",
+        "Web Design", 
+        "UI/UX Design", 
+        "Poster Design",
+        "Typography",
+        "Branding",
+        "Digital Art",
+        "Vector Art",
+        "Print Design"
     ],
     "tech" : [
         {
@@ -178,6 +195,7 @@
             ],
             "tags" : [
                 "Front-end Development",
+                "Web Development",
                 "UI/UX Design"
             ],
             "links" : [
@@ -241,8 +259,9 @@
             ],
             "tags" : [
                 "Front-end Development",
+                "Web Development",
                 "UI/UX Design",
-                "Data Science"
+                "Data"
             ],
             "links" : [
                 {
@@ -278,9 +297,15 @@
             "tags" : [
                 "Full-Stack Development",
                 "Software Engineering",
+                "Web Development",
+                "UI/UX Design",
                 "Quality Education SDG"
             ],
             "links" : [
+                {
+                    "message" : "View Deployed Site",
+                    "url" : "https://cs192-apes-2pui.vercel.app/"
+                },
                 {
                     "message" : "View on GitHub",
                     "platform" : "github",
@@ -336,9 +361,9 @@
             ],
             "links" : [
                 {
-                    "message" : "View on GitHub",
-                    "platform" : "github",
-                    "url" : "https://github.com/pingu204/cybot-bot"
+                    "message" : "View Prototype",
+                    "platform" : "figma",
+                    "url" : "https://www.figma.com/proto/V6zGE2DgeEI3cq80Itlcl7/SafetyPal?node-id=323-1218&starting-point-node-id=323%3A1218"
                 }
             ]
         },
@@ -365,6 +390,17 @@
                 }
             ]
         }
+    ],
+    "techTags" : [
+        "Front-end Development",
+        "Back-end Development",
+        "Full-Stack Development",
+        "Software Engineering",
+        "Web Development",
+        "Bot Development",
+        "UI/UX Design",
+        "Data",
+        "AI"
     ],
     "education": [
         {
