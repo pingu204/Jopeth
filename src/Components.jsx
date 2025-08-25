@@ -121,32 +121,100 @@ export function TabElem({text}) {
     </>)
 }
 
-export function Gallery({type}) {
+export function Gallery({type, filters}) {
+    // Obtain filters from `data.json`
+    // const filters = data["designTags"];
+
+    // Initialize list of enabled filters
+    const [enabledFilters, setEnabledFilters] = useState([]);
+
+    // Checks if `tags` matches all of the enabled filters
+    const callback = (tags) => {
+        let tagsSet = new Set(tags);
+        let filterSet = new Set(enabledFilters);
+        return tagsSet.intersection(filterSet).size > 0;
+    }
+
     return(<>
+        <Disclosure>
+            {({open}) => (
+                <>
+                <DisclosureButton className="w-full flex flex-row gap-2 items-center mb-4">
+                    <Icon icon={ open ? "tdesign:chevron-down" : "tdesign:chevron-right" }></Icon>
+                    <span className="font-bold cursor-pointer">Filter by Tag</span>
+                </DisclosureButton>
+                <DisclosurePanel className="w-full inline-flex flex-wrap gap-2 mb-8">
+                    {
+                        filters.map(
+                            (f, i) => 
+                            <FilterButton
+                                key={i}
+                                enabled={enabledFilters.includes(f)}
+                                onClick={() =>{
+                                    (enabledFilters.includes(f))
+                                    ? setEnabledFilters((lst) => lst.filter(x => x !== f)) 
+                                    : setEnabledFilters((lst) => [...lst, f])
+                                }}
+                            >
+                                {f}
+                            </FilterButton>
+                        )
+                    }
+                </DisclosurePanel>
+                </>
+            )}
+        </Disclosure>
         <div className="grid lg:grid-cols-2 gap-8">
             {data[type].map(
-                (entry, i) => <GalleryItem entry={entry} index={i}/>
+                (entry, i) => 
+                <GalleryItem 
+                    isVisible={enabledFilters.length === 0 ? true : callback(entry.tags)}
+                    entry={entry}
+                    index={i}
+                />
             )}
         </div>
     </>)
 }
 
-export function GalleryItem({entry, index}) {
+export function FilterButton({enabled, onClick, children}) {
+    // const [enabled, setEnabled] = useState(false);
+    console.log(children, enabled)
+    return (<>
+        {
+            <button
+                onClick={onClick}
+                className={
+                    `
+                    px-3 py-1 rounded-full text-sm cursor-pointer
+                    hover:opacity-[0.5]
+                    border-1 border-black
+                    ${enabled ? "text-white" : "text-black"}
+                    // ${enabled ? "bg-black" : "bg-none"}
+                    `
+                }
+            >
+                { children } {enabled ? "-" : "+"}
+            </button>
+        }
+    </>)
+}
+
+export function GalleryItem({isVisible, entry, index}) {
     const modal_id = "my_modal_" + index;
     return(<>
-        <div>
-            <div className="w-full">
-                <Thumbnail onclick={() => document.getElementById(modal_id).show()} img_url={entry.cover}/>
-                <GalleryModal modal_id={modal_id} entry={entry}/>
-                <span className="text-xl flex flex-row gap-1 mb-2">
-                    {entry.platforms && entry.platforms.map(
-                        (platform) => <Icon icon={icons[platform]}/>
-                    )}
-                    {/* <div className="flex-grow"></div> */}
-                </span>
-                <span className="tracking-tight text-xl leading-none">{entry.title}</span>
-            </div>
-        </div>
+        {isVisible &&
+        <div className={"w-full"}>
+            <Thumbnail onclick={() => document.getElementById(modal_id).show()} img_url={entry.cover}/>
+            <GalleryModal modal_id={modal_id} entry={entry}/>
+            <span className="text-xl flex flex-row gap-1 mb-2">
+                {entry.platforms && entry.platforms.map(
+                    (platform) => <Icon icon={icons[platform]}/>
+                )}
+                {/* <div className="flex-grow"></div> */}
+            </span>
+            <span className="tracking-tight text-xl leading-none">{entry.title}</span>
+        </div>}
     </>)
 }
 
@@ -169,8 +237,8 @@ export function GalleryModal({modal_id, entry}) {
                         <div className="flex flex-row gap-1 flex-wrap">
                             {
                                 entry.tags.map(
-                                    (tag) =>
-                                    <Badge text={tag}/>
+                                    (tag) => 
+                                    <Badge>{ tag }</Badge>
                                 )
                             }
                         </div>
@@ -218,9 +286,9 @@ export function GradientTab({text}) {
     </>)
 }
 
-export function Badge({text}) {
+export function Badge({children}) {
     return (<>
-        <span className="px-4 py-2 rounded-full bg-white/50 hover:bg-white/20 text-white inset-shadow-sm/50 inset-shadow-white text-sm">{text}</span>
+        <span className="px-4 py-2 rounded-full bg-white/50 hover:bg-white/20 text-white inset-shadow-sm/50 inset-shadow-white text-sm">{children}</span>
     </>)
 }
 
@@ -256,14 +324,18 @@ export function History({type}) {
 }
 
 export function HistoryItem({role, institution, year, img, ongoing, extension=null}) {
+    const {isOpen, setIsOpen} = useState(false);
+
     return (<>
         <Disclosure>
+            {({ open }) => (
+            <>
             <DisclosureButton className="w-full grid grid-cols-[10%_auto] md:grid-cols-[10%_60%_auto] gap-3 cursor-pointer">
                 <div>
                     <img src={img} className="w-10 aspect-square rounded-md border-1 border-gray-200 p-1" alt={role}></img>
                 </div>
                 <div className="flex flex-col text-start">
-                    <span className="font-medium text-base lg:text-lg">{role} {ongoing && <div aria-label="success" class="status status-success tooltip tooltip-bottom" data-tip="Ongoing"></div>}</span>
+                    <span className="font-medium text-base lg:text-lg">{open ? "adwa" : "aaaa"} {role} {ongoing && <div aria-label="success" class="status status-success tooltip tooltip-bottom" data-tip="Ongoing"></div>}</span>
                     <span className="block md:hidden text-xs lg:text-sm">{year}</span>
                     {extension && <span className="text-xs lg:text-sm">{extension}</span>}
                     <span className="text-xs lg:text-sm truncate">{institution}</span>
@@ -276,6 +348,8 @@ export function HistoryItem({role, institution, year, img, ongoing, extension=nu
                     Well yes!
                 </div>
             </DisclosurePanel>
+            </>
+            )}
         </Disclosure>
         {/* <div>
             <img src={img} className="h-10 w-10 rounded-md border-1 border-gray-200 p-1" alt={role}></img>

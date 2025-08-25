@@ -110,8 +110,8 @@ function App() {
                                     </div>
                                 </div>
                             </TabPanel>
-                            <TabPanel><Gallery type="design"/></TabPanel>
-                            <TabPanel><Gallery type="tech"/></TabPanel>
+                            <TabPanel><Gallery type="design" filters={data["designTags"]}/></TabPanel>
+                            <TabPanel><Gallery type="tech" filters={data["techTags"]}/></TabPanel>
                         </TabPanels>
                     </TabGroup>
                 </div>
