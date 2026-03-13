@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
-import data from "./data/data.json";
 import icons from "./data/icons.json";
 import {
 	Tab,
@@ -10,6 +9,7 @@ import {
 } from "@headlessui/react";
 import { ReactTyped } from "react-typed";
 import { getUrl } from "./utils/getUrl";
+import { data } from "./data/data";
 
 console.log(data);
 

@@ -1,4 +1,4 @@
-{
+export const data = {
 	"socials": {
 		"linkedin": "https://www.linkedin.com/in/jopeth-bryan-seda/",
 		"instagram": "https://www.instagram.com/jopeth.psd/",

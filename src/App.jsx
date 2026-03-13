@@ -18,8 +18,10 @@ import {
 } from "./Components.jsx";
 import { TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { ReactTyped } from "react-typed";
-import data from "./data/data.json";
 import { getUrl } from "./utils/getUrl.js";
+import Navbar from "./components/Header.jsx";
+import { ToastContainer } from "react-toastify";
+import { data } from "./data/data.js";
 
 
 
@@ -52,7 +54,7 @@ function App() {
 					backgroundImage: "url(" + getUrl("assets/lazy.png") + ")",
 				}}
 			>
-				<Header />
+				<Navbar />
 				<LastFm />
 				<div className="w-screen flex flex-col gap-8">
 					<img
@@ -254,6 +256,10 @@ function App() {
 				</div>
 				<Footer />
 			</div>
+			<ToastContainer
+				position={"bottom-right"}
+				draggable
+			/>
 		</>
 	);
 }
