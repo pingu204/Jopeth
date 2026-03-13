@@ -25,6 +25,7 @@ import { data } from "./data/data.js";
 import Title from "./components/text/Title.jsx";
 import Paragraph from "./components/text/Paragraph.jsx";
 import { content } from "./data/content.js";
+import Button from "./components/Button.jsx";
 
 
 
@@ -163,7 +164,7 @@ function App() {
 											</div>
 										</div>
 									</div>
-									<div className="w-full  my-16">
+									<div className="w-full my-16">
 										<Title>
 											Igniting Ideas<br></br>From Spark to
 											Finish<br></br>. ݁₊ ⊹ . ݁˖ . ݁
@@ -180,14 +181,16 @@ function App() {
 												}
 												target="_blank"
 											>
-												<button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">
-													Connect with Me
-													<span className="flex-grow"></span>
+												<Button
+													full={true}
+													center={false}
+												>
+													{"Connect With Me"}
 													<Icon
 														icon="ri:linkedin-fill"
 														className="size-[1.5em]"
 													/>
-												</button>
+												</Button>
 											</a>
 											<a
 												className="tooltip tooltip-bottom"
@@ -199,14 +202,16 @@ function App() {
 												}
 												target="_blank"
 											>
-												<button className="text-xl bg-gray-100 hover:opacity-[0.5] text-black w-full py-3 px-6 flex items-center cursor-pointer border-1 border-gray-300 rounded-lg shadow-md inset-shadow-sm inset-shadow-white">
+												<Button
+													full={true}
+													center={false}
+												>
 													Send me an E-mail
-													<span className="flex-grow"></span>
 													<Icon
 														icon="mdi:gmail"
 														className="size-[1.5em]"
 													/>
-												</button>
+												</Button>
 											</a>
 										</div>
 									</div>
