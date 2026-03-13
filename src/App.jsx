@@ -14,7 +14,7 @@ import {
 	Gallery,
 	History,
 	TechCategory,
-	LastFm,
+	// LastFm,
 } from "./Components.jsx";
 import { TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { ReactTyped } from "react-typed";
@@ -35,6 +35,7 @@ import Tech from "./components/pages/Tech.jsx";
 import Design from "./components/pages/Design.jsx";
 import TabButton from "./components/TabButton.jsx";
 import Footer from "./components/Footer.jsx";
+import LastFm from "./components/LastFm.jsx";
 
 
 
