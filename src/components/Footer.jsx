@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { data } from "../data/data";
 import { getUrl } from "../utils/getUrl";
 

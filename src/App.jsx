@@ -5,7 +5,7 @@ import "./styles.css";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import {
-	Header,
+	// Header,
 	Intro,
 	Hero,
 	MainContainer,
