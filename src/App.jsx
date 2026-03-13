@@ -9,7 +9,7 @@ import {
 	Intro,
 	Hero,
 	MainContainer,
-	Footer,
+	// Footer,
 	TabElem,
 	Gallery,
 	History,
@@ -34,6 +34,7 @@ import Profile from "./components/pages/Profile.jsx";
 import Tech from "./components/pages/Tech.jsx";
 import Design from "./components/pages/Design.jsx";
 import TabButton from "./components/TabButton.jsx";
+import Footer from "./components/Footer.jsx";
 
 
 
