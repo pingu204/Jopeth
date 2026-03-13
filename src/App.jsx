@@ -22,6 +22,9 @@ import { getUrl } from "./utils/getUrl.js";
 import Navbar from "./components/Header.jsx";
 import { ToastContainer } from "react-toastify";
 import { data } from "./data/data.js";
+import Title from "./components/text/Title.jsx";
+import Paragraph from "./components/text/Paragraph.jsx";
+import { content } from "./data/content.js";
 
 
 
@@ -123,35 +126,17 @@ function App() {
 										<Intro />
 									</div>
 									<div className="w-full mt-16 mb-8">
-										<p className="font-light text-4xl/10 lg:text-6xl/15 xl:text-5xl/13 mb-16 text-center ">
+										<Title>
 											I'm a Full-Stack{" "}
 											<span className="line-through">
 												Overflow
 											</span>
 											<br></br>Developer & Designer
 											<br></br>ദി(˵ •̀ ᴗ - ˵ ) ✧
-										</p>
-										<p className="text-sm/6 lg:text-base xl:text-base/7 mb-4">
-											Although I was only formally
-											introduced to programming in high
-											school, my sheer love for numbers
-											and computers contributed to my
-											acquired interest in computer
-											science. However, as someone with
-											tons of idea at his disposal,
-											graphic design also became an outlet
-											for my creativity.
-										</p>
-										<p className="text-sm/6 lg:text-base xl:text-base/7">
-											I find fulfillment in exploring the
-											union between these two passions of
-											mine, hence making software
-											development and/or engineering as my
-											dream career. Of course, I still
-											have a lot of room to grow, but
-											check out some of my current
-											credentials below!
-										</p>
+										</Title>
+										<Paragraph>
+											{content.INTRO}
+										</Paragraph>
 									</div>
 									<div className="w-full grid md:grid-cols-[auto_minmax(0,1fr)] md:gap-4 lg:gap-16 xl:gap-5">
 										<div className="font-bold place-content-start w-[30%] py-4">
@@ -179,25 +164,13 @@ function App() {
 										</div>
 									</div>
 									<div className="w-full  my-16">
-										<p className="font-light text-4xl/10 lg:text-6xl/15 xl:text-5xl/13 mb-4 text-center">
+										<Title>
 											Igniting Ideas<br></br>From Spark to
 											Finish<br></br>. ݁₊ ⊹ . ݁˖ . ݁
-										</p>
-										<p className="text-sm/6 lg:text-base xl:text-base/7 mb-4">
-											A recurring motif in this space is
-											the presence of sparkles. I use it
-											to embody my passion in transforming
-											ideas into tangible solutions, be it
-											in software or visual form, hence
-											the birth of this portfolio! Sparks
-											of thought bring me joy, and I find
-											most fulfillment in igniting these
-											sparks into something more.
-										</p>
-										<p className="text-sm/6 lg:text-base xl:text-base/7 mb-4">
-											Let's connect to see how can we can
-											ignite ˗ˏˋ sparks ˎˊ˗ together.
-										</p>
+										</Title>
+										<Paragraph>
+											{content.SPARK}
+										</Paragraph>
 										<div className="grid lg:grid-cols-2 gap-4">
 											<a
 												className="tooltip tooltip-bottom"
