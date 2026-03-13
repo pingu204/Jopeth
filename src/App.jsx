@@ -26,6 +26,8 @@ import Title from "./components/text/Title.jsx";
 import Paragraph from "./components/text/Paragraph.jsx";
 import { content } from "./data/content.js";
 import Button from "./components/Button.jsx";
+import Plumbob from "./components/Plumbob.js";
+import Typewriter from "./components/Typewriter.js";
 
 
 
@@ -61,31 +63,10 @@ function App() {
 				<Navbar />
 				<LastFm />
 				<div className="w-screen flex flex-col gap-8">
-					<img
-						src={getUrl("assets/plumbob.gif")}
-						className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star"
-						alt="star"
-					></img>
+					<Plumbob />
 					<div className="w-full xl:w-[50%] place-self-center bg-white rounded-2xl px-8 lg:px-24 py-10 lg:py-20 animate-glow flex flex-col">
 						<div className="text-center">
-							<h1 className="text-3xl lg:text-6xl xl:text-5xl font-regular mb-6">
-								<ReactTyped
-									strings={[
-										"Kumusta, ako si Jopeth!",
-										"Some call me Bopeth,",
-										"which became Bopie",
-										"hence the birth of...",
-										"Bopie Studios!",
-										"⸜(｡˃ ᵕ ˂ )⸝♡",
-										"...",
-									]}
-									typeSpeed={40}
-									loop
-									backSpeed={20}
-									cursorChar="|"
-									showCursor={true}
-								/>
-							</h1>
+							<div className="mb-6"><Typewriter /></div>
 							<p className="text-sm/6 lg:text-base xl:text-base/7 px-4">
 								Learn more about me below and I hope you enjoy
 								exploring Bopie Studios!
