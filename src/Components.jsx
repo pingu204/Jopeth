@@ -9,7 +9,7 @@ import {
 	DisclosurePanel,
 } from "@headlessui/react";
 import { ReactTyped } from "react-typed";
-import { getUrl } from "./App.jsx";
+import { getUrl } from "./utils/getUrl";
 
 console.log(data);
 

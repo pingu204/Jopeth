@@ -19,11 +19,9 @@ import {
 import { TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { ReactTyped } from "react-typed";
 import data from "./data/data.json";
+import { getUrl } from "./utils/getUrl.js";
 
-export function getUrl(path) {
-	const imgUrl = new URL("../" + path, import.meta.url).href;
-	return imgUrl;
-}
+
 
 export function Loader() {
 	const [display, setDisplay] = useState("block");
