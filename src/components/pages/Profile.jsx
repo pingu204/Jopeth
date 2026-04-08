@@ -29,29 +29,29 @@ const Profile = () => {
                 {content.INTRO}
             </Paragraph>
         </div>
-        <div className="w-full grid md:grid-cols-[auto_minmax(0,1fr)] md:gap-4 lg:gap-16 xl:gap-5">
-            <div className="font-bold place-content-start w-[30%] py-4">
+        <div className="w-full flex flex-col gap-6 mb-8">
+            <span className="w-full px-4 uppercase rounded-full py-1 border-[1px] border-gray-200 bg-gray-100 text-black shadow-md inset-shadow-sm inset-shadow-white text-sm font-medium flex justify-between">
+                <span className="text-gray-400">+</span>
                 Education
-            </div>
-            <div className="py-4">
-                <History type="education" />
-            </div>
-            <div className="font-bold place-content-start py-4">
-                Technologies I Use
-            </div>
-            <div className="py-4">
-                <div className="grid grid-cols-2 gap-4">
-                    {data["tech_stack"].map(
-                        (entry) => (
-                            <TechCategory
-                                category={
-                                    entry.category
-                                }
-                                lst={entry.lst}
-                            />
-                        ),
-                    )}
-                </div>
+                <span className="text-gray-400">+</span>
+            </span>
+            <History type={"education"} />
+        </div>
+        <div className="w-full flex flex-col gap-6">
+            <span className="w-full text-center uppercase rounded-full py-1 border-[1px] border-gray-200 bg-gray-100 text-black shadow-md inset-shadow-sm inset-shadow-white text-sm font-medium">TECH STACK</span>
+            <div className="grid md:grid-cols-2 gap-4">
+                {data["tech_stack"].map(
+                    (entry) => (
+                        <div className="bg-gray-100/50 rounded-md p-4">
+                        <TechCategory
+                            category={
+                                entry.category
+                            }
+                            lst={entry.lst}
+                        />
+                        </div>
+                    ),
+                )}
             </div>
         </div>
         <div className="w-full mt-16">

@@ -343,20 +343,27 @@ export const data = {
 			"role": "Web Development Intern",
 			"extension": "Admin Section",
 			"institution": "Natural Sciences Research Institute",
-			"year": "2025",
+			start_date: "06-2025",
+            end_date: "07-2025",
 			"ongoing": true,
 			"img": "https://upd.edu.ph/wp-content/uploads/2020/03/NSRI-logo.png"
 		},
 		{
-			"role": "Junior Student",
+			"role": (new Date().getTime() > new Date(2026,6,5).getTime()) 
+                ? "Degree Holder"
+                : "Senior Student",
 			"extension": "B.S. Computer Science",
 			"institution": "University of the Philippines - Diliman",
+            start_date: "09-2022",
+            end_date: "07-2026",
 			"year": "2022-2026",
 			"ongoing": true,
-			"img": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/University_of_The_Philippines_seal.svg/800px-University_of_The_Philippines_seal.svg.png"
+			"img": "https://upd.edu.ph/wp-content/uploads/2019/06/upd-logo-2019.png"
 		},
 		{
 			"role": "High School Graduate",
+            start_date: "08-2016",
+            end_date: "07-2022",
 			"institution": "Philippine Science High School - Main Campus",
 			"year": "2016-2022",
 			"ongoing": false,
