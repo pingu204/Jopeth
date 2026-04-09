@@ -1,11 +1,13 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
-import { History, Intro, TechCategory } from "../../Components"
 import { content } from "../../data/content"
 import { data } from "../../data/data"
 import { getUrl } from "../../utils/getUrl"
 import Paragraph from "../text/Paragraph"
 import Title from "../text/Title"
 import Button from "../Button"
+import Intro from "../Intro"
+import History from "../history/History"
+import Category from "../tech-stack/Category"
 
 const Profile = () => {
     return (<>
@@ -43,7 +45,7 @@ const Profile = () => {
                 {data["tech_stack"].map(
                     (entry) => (
                         <div className="bg-gray-100/50 rounded-md p-4">
-                        <TechCategory
+                        <Category
                             category={
                                 entry.category
                             }

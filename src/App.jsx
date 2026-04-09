@@ -4,18 +4,6 @@ import viteLogo from '/vite.svg' */
 import "./styles.css";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
-import {
-	// Header,
-	Intro,
-	Hero,
-	MainContainer,
-	// Footer,
-	TabElem,
-	Gallery,
-	History,
-	TechCategory,
-	// LastFm,
-} from "./Components.jsx";
 import { TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { ReactTyped } from "react-typed";
 import { getUrl } from "./utils/getUrl.js";
@@ -65,9 +53,9 @@ function App() {
 		<>
 			{/* <Loader/> */}
 			<div
-				className="bg-repeat-none bg-fixed bg-size-[200%] overflow-x-hidden"
+				className="bg-repeat-none bg-fixed bg-size-[150%] overflow-x-hidden"
 				style={{
-					backgroundImage: "url(" + getUrl("assets/lazy.png") + ")",
+					backgroundImage: "url(" + "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" + ")",
 				}}
 			>
 				<Navbar />

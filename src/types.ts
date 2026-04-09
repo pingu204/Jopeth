@@ -11,3 +11,17 @@ export interface GalleryItem {
     title: string
     description: string
 }
+
+export interface Milestone {
+    role: string
+    institution: string
+    start_date: string
+    end_date: string
+    img: string
+    extension: string
+}
+
+export interface IconType {
+    name: string
+    code: string
+}
