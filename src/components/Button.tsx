@@ -1,10 +1,20 @@
+import React from "react";
+
+interface ButtonProps {
+    center: boolean
+    full: boolean
+    disabled: boolean
+    onClick: () => void
+    children: React.ReactNode
+}
+
 const Button = ({
     center=true,
     full=false,
     disabled=false,
     onClick,
     children,
-}) => {
+}: ButtonProps) => {
     const disabledClass = "opacity-[0.5]"
     const enabledClass = "cursor-pointer hover:opacity-[0.5]"
 
