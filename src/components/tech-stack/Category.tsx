@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
-import { icons } from "../../data/icons";
 import { IconType } from "../../types";
+import { icons } from "../../data/icons";
 
 interface CategoryProps {
     category: string

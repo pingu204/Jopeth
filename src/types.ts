@@ -1,9 +1,9 @@
 export interface GalleryItem {
     platforms: string[]
     tags: string[]
-    links: {
+    links?: {
         url: string
-        platform: string
+        platform?: string
         message: string
     }[]
     images: string[]
@@ -18,10 +18,15 @@ export interface Milestone {
     start_date: string
     end_date: string
     img: string
-    extension: string
+    extension?: string
 }
 
 export interface IconType {
     name: string
     code: string
+}
+
+export interface TechStack {
+    category: string
+    lst: IconType[]
 }

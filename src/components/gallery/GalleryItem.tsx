@@ -18,7 +18,7 @@ const Item = ({ isVisible, entry, index }: GalleryItemProps) => {
             {isVisible && (
                 <div className={"w-full"}>
                     <Thumbnail
-                        onClick={() => document?.getElementById(modal_id)?.show()}
+                        onClick={() => (document.getElementById(modal_id) as HTMLDialogElement)?.showModal()}
                         imgUrl={entry.cover}
                     />
                     <GalleryModal modalId={modal_id} entry={entry} />
@@ -27,7 +27,6 @@ const Item = ({ isVisible, entry, index }: GalleryItemProps) => {
                             entry.platforms.map((platform) => (
                                 <Icon icon={icons[platform]} />
                             ))}
-                        {/* <div className="flex-grow"></div> */}
                     </span>
                     <span className="tracking-tight text-xl leading-none">
                         {entry.title}

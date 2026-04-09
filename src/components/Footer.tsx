@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { data } from "../data/data";
+import { socials } from "../data/data";
 import { getUrl } from "../utils/getUrl";
 
 const Footer = () => {
@@ -36,7 +36,7 @@ const Footer = () => {
                         </span>
                         <span className="flex flex-row justify-center lg:justify-end items-center gap-1">
                             <a
-                                href={data["socials"]["repo"]}
+                                href={socials["repo"]}
                                 className="tooltip tooltip-bottom"
                                 data-tip="This takes you this project's repository."
                             >
@@ -46,7 +46,7 @@ const Footer = () => {
                         </span>
                         <span className="flex flex-row justify-center lg:justify-end items-center gap-1">
                             <a
-                                href={data["socials"]["linkedin"]}
+                                href={socials["linkedin"]}
                                 target="_blank"
                                 className="tooltip tooltip-bottom"
                                 data-tip="LinkedIn"
@@ -54,7 +54,7 @@ const Footer = () => {
                                 <Icon icon="uil:linkedin" />
                             </a>
                             <a
-                                href={data["socials"]["github"]}
+                                href={socials["github"]}
                                 target="_blank"
                                 className="tooltip tooltip-bottom"
                                 data-tip="GitHub"
@@ -62,7 +62,7 @@ const Footer = () => {
                                 <Icon icon="mingcute:github-fill" />
                             </a>
                             <a
-                                href={data["socials"]["up-mail"]}
+                                href={socials["up-mail"]}
                                 target="_blank"
                                 className="tooltip tooltip-bottom"
                                 data-tip="E-mail"

@@ -1,16 +1,15 @@
-import { data } from "../../data/data";
 import { Milestone } from "../../types";
 import HistoryItem from "./HistoryItem";
 
 interface HistoryProps {
-    type: string
+    historyItems: Milestone[]
 }
 
-const History = ({ type }:HistoryProps) => {
+const History = ({ historyItems }:HistoryProps) => {
     return (
         <>
             <div className="w-full flex flex-col gap-4">
-                {data[type].map((entry:Milestone) => (
+                {historyItems.map((entry) => (
                     <HistoryItem
                         role={entry.role}
                         institution={entry.institution}

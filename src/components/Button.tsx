@@ -3,8 +3,8 @@ import React from "react";
 interface ButtonProps {
     center: boolean
     full: boolean
-    disabled: boolean
-    onClick: () => void
+    disabled?: boolean
+    onClick?: () => void
     children: React.ReactNode
 }
 

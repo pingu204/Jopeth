@@ -1,15 +1,15 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { data } from "../../data/data";
 import FilterButton from "./FilterButton";
 import Item from "./GalleryItem";
+import { GalleryItem } from "../../types";
 
 interface GalleryProps {
-    type: string
+    galleryItems: GalleryItem[]
     filters: string[]
 }
 
-const Gallery = ({ type, filters }: GalleryProps) => {
+const Gallery = ({ galleryItems, filters }: GalleryProps) => {
     // Handles view of filters
     const [expanded, setExpanded] = useState(false)
 
@@ -18,8 +18,8 @@ const Gallery = ({ type, filters }: GalleryProps) => {
 
     // Checks if `tags` matches all of the enabled filters
     const callback = (tags: string[]) => {
-        let tagsSet = new Set(tags);
-        let filterSet = new Set(enabledFilters);
+        const tagsSet = new Set(tags);
+        const filterSet = new Set(enabledFilters);
         return tagsSet.intersection(filterSet).size > 0;
     };
 
@@ -46,14 +46,16 @@ const Gallery = ({ type, filters }: GalleryProps) => {
                         key={i}
                         enabled={enabledFilters.includes(f)}
                         onClick={() => {
-                            enabledFilters.includes(f)
-                                ? setEnabledFilters((lst) =>
-                                        lst.filter((x) => x !== f),
-                                    )
-                                : setEnabledFilters((lst) => [
-                                        ...lst,
-                                        f,
-                                    ]);
+                            if (enabledFilters.includes(f)) {
+                                setEnabledFilters((lst) =>
+                                    lst.filter((x) => x !== f),
+                                );
+                            } else {
+                                setEnabledFilters((lst) => [
+                                    ...lst,
+                                    f,
+                                ]);
+                            }
                         }}
                     >
                         {f}
@@ -61,7 +63,7 @@ const Gallery = ({ type, filters }: GalleryProps) => {
                 ))}
             </div>}
             <div className="grid lg:grid-cols-2 gap-8">
-                {data[type].map((entry, i) => (
+                {galleryItems.map((entry, i) => (
                     <Item
                         isVisible={
                             enabledFilters.length === 0

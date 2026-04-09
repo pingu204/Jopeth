@@ -1,4 +1,4 @@
-export const icons = {
+export const icons: Record<string, string> = {
     "photoshop": "logos:adobe-photoshop",
     "illustrator": "logos:adobe-illustrator",
     "indesign": "logos:adobe-indesign",

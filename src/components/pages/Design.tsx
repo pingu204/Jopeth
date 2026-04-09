@@ -1,12 +1,12 @@
 // import { Gallery } from "../../Components";
-import { data } from "../../data/data";
+import { designs, designTags } from "../../data/data";
 import Gallery from "../gallery/Gallery";
 
 const Design = () => {
     return (<>
         <Gallery
-            type="design"
-            filters={data["designTags"]}
+            galleryItems={designs}
+            filters={designTags}
         />
     </>)
 }

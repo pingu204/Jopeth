@@ -1,10 +1,11 @@
 import { Icon } from "@iconify/react";
 import { icons } from "../data/icons";
+import { GalleryItem } from "../types";
 
 interface RedirectButtonProps {
     url: string
     message: string
-    platform: string
+    platform?: string
 }
 
 const RedirectButton = (

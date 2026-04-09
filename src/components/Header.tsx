@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { data } from "../data/data";
+import { socials } from "../data/data";
 import { toast } from "react-toastify";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
@@ -44,16 +44,16 @@ const Navbar = () => {
 						className="cursor-pointer opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md  tooltip tooltip-bottom"
 						data-tip="Share this website to others!"
 					>
-						<span class="hidden md:block">Share</span>
+						<span className="hidden md:block">Share</span>
 						<Icon icon="material-symbols:share" />
 					</button>
 					<a
 						className="opacity-[0.5] hover:opacity-[1] flex flex-row gap-4 items-center text-lg lg:text-md tooltip tooltip-bottom"
 						data-tip="Take a look at my CV!"
-						href={data["socials"]["cv"]}
+						href={socials["cv"]}
 						target="_blank"
 					>
-						<span class="hidden md:block">View CV</span>
+						<span className="hidden md:block">View CV</span>
 						<Icon icon="f7:doc-person-fill" />
 					</a>
 				</span>

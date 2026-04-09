@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 import { content } from "../../data/content"
-import { data } from "../../data/data"
+import { education, socials, techStack } from "../../data/data"
 import { getUrl } from "../../utils/getUrl"
 import Paragraph from "../text/Paragraph"
 import Title from "../text/Title"
@@ -37,12 +37,12 @@ const Profile = () => {
                 Education
                 <span className="text-gray-400">+</span>
             </span>
-            <History type={"education"} />
+            <History historyItems={education} />
         </div>
         <div className="w-full flex flex-col gap-6">
             <span className="w-full text-center uppercase rounded-full py-1 border-[1px] border-gray-200 bg-gray-100 text-black shadow-md inset-shadow-sm inset-shadow-white text-sm font-medium">TECH STACK</span>
             <div className="grid md:grid-cols-2 gap-4">
-                {data["tech_stack"].map(
+                {techStack.map(
                     (entry) => (
                         <div className="bg-gray-100/50 rounded-md p-4">
                         <Category
@@ -71,7 +71,7 @@ const Profile = () => {
                     className="tooltip tooltip-bottom"
                     data-tip="This takes you to my LinkedIn profile."
                     href={
-                        data["socials"]["linkedin"]
+                        socials["linkedin"]
                     }
                     target="_blank"
                 >
@@ -90,7 +90,7 @@ const Profile = () => {
                     className="tooltip tooltip-bottom"
                     data-tip="This takes you to a new window."
                     href={
-                        data["socials"][
+                        socials[
                             "personal-mail"
                         ]
                     }

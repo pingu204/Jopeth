@@ -4,16 +4,14 @@ import { Milestone } from "../../types"
 const HistoryItem = ({
 	role,
 	institution,
-    start_date="06-2026",
+    // start_date="06-2026",
     end_date="07-2026",
 	img,
 	extension = "",
 }: Milestone) => {
-    const start_split = start_date.split("-")
-    const start = new Date(Number(start_split[1]), Number(start_split[0])-1)
     const end_split = end_date.split("-")
     const end = new Date(Number(end_split[1]), Number(end_split[0])-1)
-    let ongoing = (new Date()).getTime() <= end.getTime()
+    const ongoing = (new Date()).getTime() <= end.getTime()
     console.log(role, ongoing)
 
     const [expanded, setExpanded] = useState(false)
