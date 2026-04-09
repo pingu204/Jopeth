@@ -1,9 +1,9 @@
 import React from "react";
 
 interface FilterButtonProps {
-    enabled: boolean
-    onClick: () => void
-    children: React.ReactNode
+	enabled: boolean;
+	onClick: () => void;
+	children: React.ReactNode;
 }
 
 const FilterButton = ({ enabled, onClick, children }: FilterButtonProps) => {
@@ -25,6 +25,6 @@ const FilterButton = ({ enabled, onClick, children }: FilterButtonProps) => {
 			}
 		</>
 	);
-}
+};
 
 export default FilterButton;

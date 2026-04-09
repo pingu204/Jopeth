@@ -1,13 +1,13 @@
-import { getUrl } from "../utils/getUrl"
+import { getUrl } from "../utils/getUrl";
 
 const Plumbob = () => {
-    return (
-        <img
-            src={getUrl("assets/plumbob.gif")}
-            className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star"
-            alt="star"
-        ></img>
-    )
-}
+	return (
+		<img
+			src={getUrl("assets/plumbob.gif")}
+			className="xl:py-16 w-[15vw] xl:w-[5vw] place-self-center animate-star"
+			alt="star"
+		></img>
+	);
+};
 
 export default Plumbob;

@@ -12,6 +12,6 @@ const LastFm = () => {
 			</div>
 		</>
 	);
-}
+};
 
 export default LastFm;

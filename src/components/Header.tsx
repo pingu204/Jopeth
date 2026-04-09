@@ -3,20 +3,19 @@ import { socials } from "../data/data";
 import { toast } from "react-toastify";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
-
 const Navbar = () => {
-    const roles = ["Developer", "Designer", "Hacipupu", "Ahtisa Manalo"]
+	const roles = ["Developer", "Designer", "Hacipupu", "Ahtisa Manalo"];
 
-    const [idx, setIdx] = useState(0);
+	const [idx, setIdx] = useState(0);
 
-    const copyWebsiteLink = () => {
-        navigator.clipboard.writeText(
-            "https://pingu204.github.io/Jopeth/",
-        );
-        toast.success("The link to the website has been copied to the clipboard.")
-    }
+	const copyWebsiteLink = () => {
+		navigator.clipboard.writeText("https://pingu204.github.io/Jopeth/");
+		toast.success(
+			"The link to the website has been copied to the clipboard.",
+		);
+	};
 
-    return (
+	return (
 		<>
 			<div className="xl:fixed flex flex-row items-center justify-between px-4 lg:px-16 w-screen h-[60px] md:h-[80px] text-white">
 				<span className="flex flex-row items-center gap-2">
@@ -60,6 +59,6 @@ const Navbar = () => {
 			</div>
 		</>
 	);
-}
+};
 
 export default Navbar;

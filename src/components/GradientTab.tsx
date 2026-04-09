@@ -1,5 +1,5 @@
 interface GradientTabProps {
-    text: string
+	text: string;
 }
 
 const GradientTab = ({ text }: GradientTabProps) => {
@@ -13,6 +13,6 @@ const GradientTab = ({ text }: GradientTabProps) => {
 			</span>
 		</>
 	);
-}
+};
 
 export default GradientTab;

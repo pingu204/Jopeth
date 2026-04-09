@@ -29,7 +29,10 @@ export function Loader() {
 				id="preloader"
 				className={`${display} fixed w-screen h-screen bg-[white]`}
 			>
-				<button className="btn" onClick={() => setDisplay("hidden")}></button>
+				<button
+					className="btn"
+					onClick={() => setDisplay("hidden")}
+				></button>
 			</div>
 		</>
 	);
