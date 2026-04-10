@@ -8,20 +8,24 @@ import Button from "../Button";
 import Intro from "../Intro";
 import History from "../history/History";
 import Category from "../tech-stack/Category";
+import ScrollAppear from "../motion/ScrollAppear";
 
 const Profile = () => {
 	return (
 		<>
 			<div className="w-full flex flex-col text-sm/6 lg:text-base xl:text-base/7">
+				<ScrollAppear>
 				<img
 					src={getUrl("assets/profile.png")}
 					className="w-[200px] aspect-square object-cover rounded-full shadow-xl place-self-center my-4 hover:scale-105 hover:shadow-lg hover:shadow-[#1bb133]/20"
 				></img>
+				</ScrollAppear>
 				<Intro />
 			</div>
 			<div className="w-full mt-16 mb-8">
+				
 				<Title>
-					I'm a Full-Stack{" "}
+					I'm a Full-Stack!{" "}
 					<span className="line-through">Overflow</span>
 					<br></br>Developer & Designer
 					<br></br>ദി(˵ •̀ ᴗ - ˵ ) ✧
@@ -29,11 +33,13 @@ const Profile = () => {
 				<Paragraph>{content.INTRO}</Paragraph>
 			</div>
 			<div className="w-full flex flex-col gap-6 mb-8">
+				<ScrollAppear>
 				<span className="w-full px-4 uppercase rounded-full py-1 border-[1px] border-gray-200 bg-gray-100 text-black shadow-md inset-shadow-sm inset-shadow-white text-sm font-medium flex justify-between">
 					<span className="text-gray-400">+</span>
 					Education
 					<span className="text-gray-400">+</span>
 				</span>
+				</ScrollAppear>
 				<History historyItems={education} />
 			</div>
 			<div className="w-full flex flex-col gap-6">

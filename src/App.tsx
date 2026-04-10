@@ -16,6 +16,9 @@ import Profile from "./components/pages/Profile";
 import Design from "./components/pages/Design";
 import Tech from "./components/pages/Tech";
 import Footer from "./components/Footer";
+import { useScroll } from "motion/react";
+import { motion } from "motion/react"
+import { getUrl } from "./utils/getUrl";
 
 export function Loader() {
 	const [display, setDisplay] = useState("block");
@@ -40,16 +43,20 @@ export function Loader() {
 
 function App() {
 	const { currentTab, setCurrentTab } = useTabs();
+	const { scrollYProgress } = useScroll();
 
 	return (
 		<>
 			{/* <Loader/> */}
+			<motion.div 
+				className="fixed z-1000 bg-green-500 h-[10px] top-0 left-0 right-0"
+				style={{ scaleX: scrollYProgress, originX: 0 }}/>
 			<div
-				className="bg-repeat-none bg-fixed bg-size-[150%] overflow-x-hidden"
+				className="bg-repeat-none bg-fixed bg-size-[140%] overflow-x-hidden"
 				style={{
 					backgroundImage:
 						"url(" +
-						"https://images.unsplash.com/photo-1499346030926-9a72daac6c63?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" +
+						getUrl("assets/lazy.png") +
 						")",
 				}}
 			>
