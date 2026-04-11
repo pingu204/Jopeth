@@ -4,15 +4,24 @@ import { Milestone } from "../../types";
 const HistoryItem = ({
 	role,
 	institution,
-	// start_date="06-2026",
+	start_date="06-2026",
 	end_date = "07-2026",
 	img,
 	extension = "",
 }: Milestone) => {
+    const start_split = start_date.split("-");
+	const start = new Date(Number(start_split[1]), Number(start_split[0]) - 1);
 	const end_split = end_date.split("-");
 	const end = new Date(Number(end_split[1]), Number(end_split[0]) - 1);
 	const ongoing = new Date().getTime() <= end.getTime();
 	console.log(role, ongoing);
+
+    const formatter = new Intl.DateTimeFormat("en", {
+        month: "short",
+        year: "numeric",
+    })
+
+    const dateRange = `${formatter.format(start)} - ${formatter.format(end)}`
 
 	const [expanded, setExpanded] = useState(false);
 
@@ -40,9 +49,9 @@ const HistoryItem = ({
 							></div>
 						)}
 					</span>
-					{/* <span className="block md:hidden text-xs lg:text-sm">
-                        {year}
-                    </span> */}
+					<span className="block md:hidden font-semibold text-gray-500 text-xs lg:text-sm">
+                        {dateRange}
+                    </span>
 					{extension && (
 						<span className="text-xs lg:text-sm">{extension}</span>
 					)}
@@ -50,9 +59,9 @@ const HistoryItem = ({
 						{institution}
 					</span>
 				</div>
-				{/* <span className="hidden md:block text-xs lg:text-sm text-right">
-                    {year}
-                </span> */}
+				<span className="hidden md:block text-xs lg:text-sm text-right">
+                    {dateRange}
+                </span>
 			</div>
 			{expanded && (
 				<div className="w-full grid grid-cols-[10%_auto] gap-3 text-sm">

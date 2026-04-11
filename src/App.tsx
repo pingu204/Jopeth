@@ -49,7 +49,7 @@ function App() {
 		<>
 			{/* <Loader/> */}
 			<motion.div 
-				className="fixed z-1000 bg-green-500 h-[10px] top-0 left-0 right-0"
+				className="fixed z-1000 bg-green-500 h-[5px] top-0 left-0 right-0"
 				style={{ scaleX: scrollYProgress, originX: 0 }}/>
 			<div
 				className="bg-repeat-none bg-fixed bg-size-[140%] overflow-x-hidden"
