@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { IconType } from "../../types";
 import { icons } from "../../data/icons";
+import ScrollAppear from "../motion/ScrollAppear";
 
 interface CategoryProps {
 	category: string;
@@ -10,6 +11,7 @@ interface CategoryProps {
 const Category = ({ category, lst }: CategoryProps) => {
 	return (
 		<>
+			<ScrollAppear>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium text-sm uppercase">
 					{category}
@@ -28,6 +30,7 @@ const Category = ({ category, lst }: CategoryProps) => {
 					))}
 				</div>
 			</div>
+			</ScrollAppear>
 		</>
 	);
 };
