@@ -27,12 +27,6 @@ const Footer = () => {
 							>
 								<Icon icon="teenyicons:tailwind-solid" />
 							</span>
-							<span
-								className="tooltip tooltip-bottom"
-								data-tip="Iconify"
-							>
-								<Icon icon="line-md:iconify2-static" />
-							</span>
 						</span>
 						<span className="flex flex-row justify-center lg:justify-end items-center gap-1">
 							<a
