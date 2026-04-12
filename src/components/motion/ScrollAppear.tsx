@@ -15,7 +15,7 @@ const ScrollAppear = ({delay=0.3, className, children}: Props) => {
             transition={{
                 delay: delay,
             }}
-            viewport={{ once: true, amount: 0.95 }}
+            viewport={{ once: true, amount: 0.5 }}
         >
             {children}
         </motion.div>
