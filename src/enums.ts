@@ -3,3 +3,9 @@ export const TABS = {
 	GRAPHIC_DESIGN: "Graphic Design",
 	TECH: "Tech",
 };
+
+export const SEARCH_TYPE = {
+	TRACK : "musicTrack",
+	ARTIST: "musicArtist",
+	ALBUM: "album",
+}

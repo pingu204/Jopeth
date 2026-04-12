@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useGetMusicInfo } from "./useGetMusicInfo"
 
 const API_KEY = "fe00a3010a03fabd46b5a781426f1f62"
 
@@ -7,6 +8,8 @@ export function useLastFm() {
     const [topTrack, setTopTrack] = useState(null)
     const [topArtist, setTopArtist] = useState(null)
     const [topAlbum, setTopAlbum] = useState(null)
+
+    const { fetchTrackInfo, fetchArtistInfo } = useGetMusicInfo()
 
     const fetchRecentTrack = async () => {
         const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=bopieee754&api_key=${API_KEY}&format=json&limit=1`)
@@ -33,8 +36,12 @@ export function useLastFm() {
         
         if (response.ok) {
             const data = await response.json()
-            // setTopAlbum(data.weeklyalbumchart.album[0])
-            fetchAlbumInfo(data.weeklyalbumchart.album[0].mbid)
+            const albumMbid = data.weeklyalbumchart.album[0].mbid
+            // console.log("top album", album)
+            // // setTopAlbum(data.weeklyalbumchart.album[0])
+            // const albumInfo = await fetchAlbumInfo(album.name, album.artist["#text"])
+            // console.log("album", albumInfo)
+            fetchAlbumInfo(albumMbid)
         }
     }
 
@@ -43,8 +50,11 @@ export function useLastFm() {
         
         if (response.ok) {
             const data = await response.json()
-            setTopTrack(data.weeklytrackchart.track[0])
-            console.log(data.weeklytrackchart.track[0])
+            const track = data.weeklytrackchart.track[0]
+
+            const trackInfo = await fetchTrackInfo(track.name, track.artist["#text"])
+            setTopTrack(trackInfo)
+            console.log("track", trackInfo)
         }
     }
 
@@ -53,8 +63,11 @@ export function useLastFm() {
         
         if (response.ok) {
             const data = await response.json()
-            setTopArtist(data.weeklyartistchart.artist[0])
-            console.log(data.weeklyartistchart.artist[0])
+            const artist = data.weeklyartistchart.artist[0]
+
+            const artistInfo = await fetchArtistInfo(artist.name)
+            setTopArtist(artistInfo)
+            console.log("artist", artistInfo)
         }
     }
 

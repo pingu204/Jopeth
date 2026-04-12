@@ -5,13 +5,10 @@ import "./styles.css";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
-import useTabs from "./hooks/useTabs";
 import Navbar from "./components/Header";
-import LastFm from "./components/LastFm";
 import Plumbob from "./components/Plumbob";
 import Typewriter from "./components/Typewriter";
 import TabButton from "./components/TabButton";
-import { TABS } from "./enums";
 import Profile from "./components/pages/Profile";
 import Design from "./components/pages/Design";
 import Tech from "./components/pages/Tech";
@@ -19,6 +16,9 @@ import Footer from "./components/Footer";
 import { useScroll } from "motion/react";
 import { motion } from "motion/react"
 import { getUrl } from "./utils/getUrl";
+import { TABS } from "./enums";
+import useTabs from "./hooks/useTabs";
+import LastFm from "./components/LastFm";
 
 export function Loader() {
 	const [display, setDisplay] = useState("block");

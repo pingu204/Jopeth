@@ -16,14 +16,14 @@ const LastFm = () => {
 			value: topAlbum?.name,
 		},
 		{
-			image: topTrack?.image[1]["#text"],
+			image: topTrack?.artworkUrl100,
 			title: "Top Track",
-			value: topTrack?.name,
+			value: topTrack?.trackName,
 		},
 		{
-			image: topArtist?.image?.[1]["#text"],
+			image: topArtist?.artworkUrl100,
 			title: "Top Artist",
-			value: topArtist?.name,
+			value: topArtist?.artistName,
 		},
 	]
 
@@ -37,18 +37,18 @@ const LastFm = () => {
 						data-tip="Visit my Last.fm Page!"
 					/>
 				</a> */}
-				<div className="w-[300px] fixed m-8 bottom-0 right-0 backdrop-blur-sm bg-black/30 border border-white/30 rounded-lg py-3 text-white flex flex-col gap-2">
+				<div className="w-[300px] fixed m-8 bottom-0 right-0 backdrop-blur-sm bg-black/30 border border-white/30 rounded-lg py-3 text-white flex flex-col gap-2 hover:ring-2 hover:ring-white/20">
 					<span className="font-medium text-white flex items-center justify-between gap-3 text-lg px-3">
-						<span className="flex gap-1 flex-none items-center text-2xl">
+						<span className="font-bold flex gap-1 flex-none items-center text-lg">
 							<Icon icon={"mdi:spotify"} />
 							Bopiefy
 						</span>
 						{recentTrack &&
 						<div className="flex gap-1.5 overflow-x-hidden truncate">
 							<div className="flex flex-col truncate overflow-x-hidden shrink">
-								<span className="text-xs text-white/50">
-									{recentTrack["@attr"]["nowplaying"] == "true"
-										? <span className="flex items-center gap-1 justify-end"><span class="icon-[svg-spinners--bars-scale-middle]"></span>Now Playing</span>
+								<span className="text-xs text-white/50 text-right">
+									{recentTrack["@attr"]?.["nowplaying"] == "true"
+										? <span className="flex items-center gap-1 justify-end"><span className="icon-[svg-spinners--bars-scale-middle]"></span>Now Playing</span>
 										: "Recently Played"
 									}
 								</span>
