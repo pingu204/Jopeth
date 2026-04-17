@@ -13,12 +13,12 @@ import Profile from "./components/pages/Profile";
 import Design from "./components/pages/Design";
 import Tech from "./components/pages/Tech";
 import Footer from "./components/Footer";
-import { useScroll } from "motion/react";
-import { motion } from "motion/react"
 import { getUrl } from "./utils/getUrl";
 import { TABS } from "./enums";
 import useTabs from "./hooks/useTabs";
 import LastFm from "./components/LastFm";
+import ScrollProgress from "./components/ScrollProgress";
+import ScrollIndicator from "./components/ScrollIndicator";
 
 export function Loader() {
 	const [display, setDisplay] = useState("block");
@@ -43,23 +43,12 @@ export function Loader() {
 
 function App() {
 	const { currentTab, setCurrentTab } = useTabs();
-	const { scrollYProgress } = useScroll();
 
 	return (
 		<>
 			{/* <Loader/> */}
-			<motion.div 
-				className="fixed z-1000 bg-green-500 h-[5px] top-0 left-0 right-0"
-				style={{ scaleX: scrollYProgress, originX: 0 }}
-            />
-            <motion.div
-                className="relative"
-            >
-                <div className="fixed left-1/2 bottom-0 -translate-x-1/2 mb-4 px-4 py-1 rounded-full
-                bg-black text-white font-medium z-1000 shadow-md ring-4 ring-green-500/20">
-                    Scroll down to see more!
-                </div>
-            </motion.div>
+			<ScrollProgress />
+            <ScrollIndicator />
 			<div
 				className="bg-repeat-none bg-fixed bg-size-[140%] overflow-x-hidden"
 				style={{
