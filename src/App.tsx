@@ -19,6 +19,7 @@ import useTabs from "./hooks/useTabs";
 import LastFm from "./components/LastFm";
 import ScrollProgress from "./components/ScrollProgress";
 import ScrollIndicator from "./components/ScrollIndicator";
+import { AnimatePresence } from "motion/react";
 
 export function Loader() {
 	const [display, setDisplay] = useState("block");
@@ -111,9 +112,11 @@ function App() {
 								</span>
 							</TabButton>
 						</div>
+                        <AnimatePresence>
 						{currentTab === TABS.ABOUT_ME && <Profile />}
 						{currentTab === TABS.GRAPHIC_DESIGN && <Design />}
 						{currentTab === TABS.TECH && <Tech />}
+                        </AnimatePresence>
 					</div>
 				</div>
 				<Footer />

@@ -10,10 +10,11 @@ import History from "../history/History";
 import Category from "../tech-stack/Category";
 import ScrollAppear from "../motion/ScrollAppear";
 import SectionHeader from "../SectionHeader";
+import { motion } from "motion/react"
 
 const Profile = () => {
 	return (
-		<>
+		<motion.div exit={{ opacity: 0 }}>
 			<div className="w-full flex flex-col text-sm/6 lg:text-base xl:text-base/7">
 				<ScrollAppear>
 				<img
@@ -93,7 +94,7 @@ const Profile = () => {
                     </ScrollAppear>
 				</div>
 			</div>
-		</>
+		</motion.div>
 	);
 };
 

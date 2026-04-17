@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useLastFm } from "../hooks/useLastFm";
+import { AnimatePresence, motion } from "motion/react"
 
 const LastFm = () => {
 	const { 
@@ -28,8 +29,9 @@ const LastFm = () => {
 	]
 
 	return (
-		<>
-			<div className="bg-red-500 relative hidden xl:flex xl:flex-col">
+			<div
+                className="bg-red-500 relative hidden xl:flex xl:flex-col"
+            >
 				{/* <a href="https://www.last.fm/user/bopieee754">
 					<img
 						src="https://lastfm-recently-played.vercel.app/api?user=bopieee754"
@@ -37,7 +39,13 @@ const LastFm = () => {
 						data-tip="Visit my Last.fm Page!"
 					/>
 				</a> */}
-				<div className="w-[300px] fixed m-8 bottom-0 right-0 backdrop-blur-sm bg-black/30 border border-white/30 rounded-lg py-3 text-white flex flex-col gap-2 hover:ring-2 hover:ring-white/20">
+				{(topTrack && topAlbum && topArtist) && 
+                <motion.div 
+                    className="w-[300px] fixed m-8 bottom-0 right-0 backdrop-blur-sm bg-black/30 border border-white/30 rounded-lg py-3 text-white flex flex-col gap-2 hover:ring-2 hover:ring-white/20"
+                    initial={{ y:30, opacity:0 }}
+                    animate={{ y:0, opacity:1 }}
+                    transition={{ duration:1 }}
+                >
 					<span className="font-medium text-white flex items-center justify-between gap-3 text-lg px-3">
 						<span className="font-bold flex gap-1 flex-none items-center text-lg">
 							<Icon icon={"mdi:spotify"} />
@@ -72,9 +80,8 @@ const LastFm = () => {
 							</div>
 						)}
 					</div>
-				</div>
+				</motion.div>}
 			</div>
-		</>
 	);
 };
 
