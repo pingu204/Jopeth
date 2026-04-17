@@ -19,7 +19,7 @@ export function useLastFm() {
     const [topAlbum, setTopAlbum] = useState<Info | null>(null)
 
     const fetchRecentTrack = async () => {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=bopieee754&api_key=${API_KEY}&format=json&limit=1`)
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=bopieee754&api_key=${API_KEY}&format=json&limit=1`)
 
         if (response.ok) {
             const data = await response.json()
@@ -28,7 +28,7 @@ export function useLastFm() {
     }
 
     const fetchAlbumInfo = async (artist: string, album: string) => {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artist}&album=${album}&api_key=${API_KEY}&format=json`)
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artist}&album=${album}&api_key=${API_KEY}&format=json`)
 
         if (response.ok) {
             const data = await response.json()
@@ -37,7 +37,7 @@ export function useLastFm() {
     }
 
     const fetchTopAlbums = async (artist: string) => {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${artist}&api_key=${API_KEY}&format=json`)
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${artist}&api_key=${API_KEY}&format=json`)
 
         if (response.ok) {
             const data = await response.json()
@@ -48,7 +48,7 @@ export function useLastFm() {
     }
 
     const fetchTopAlbum = async () => {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=bopieee754&api_key=${API_KEY}&format=json`)
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=bopieee754&api_key=${API_KEY}&format=json`)
 
         if (response.ok) {
             const data = await response.json()
@@ -58,7 +58,7 @@ export function useLastFm() {
     }
 
     const fetchTopTrack = async () => {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=bopieee754&api_key=${API_KEY}&format=json`)
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=bopieee754&api_key=${API_KEY}&format=json`)
 
         if (response.ok) {
             const data = await response.json()
@@ -68,7 +68,7 @@ export function useLastFm() {
     }
 
     const fetchTopArtist = async () => {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=bopieee754&api_key=${API_KEY}&format=json`)
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=bopieee754&api_key=${API_KEY}&format=json`)
 
         if (response.ok) {
             const data = await response.json()
