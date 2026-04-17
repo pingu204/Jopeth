@@ -1,73 +1,87 @@
 import { useEffect, useState } from "react"
-import { useGetMusicInfo } from "./useGetMusicInfo"
 
 const API_KEY = "fe00a3010a03fabd46b5a781426f1f62"
 
-export function useLastFm() {
-    const [recentTrack, setRecentTrack] = useState(null)
-    const [topTrack, setTopTrack] = useState(null)
-    const [topArtist, setTopArtist] = useState(null)
-    const [topAlbum, setTopAlbum] = useState(null)
+interface Info {
+    image: {
+        "#text": string
+    }[];
+    name: string;
+    "@attr"?: {
+        "nowplaying": string
+    };
+}
 
-    const { fetchTrackInfo, fetchArtistInfo } = useGetMusicInfo()
+export function useLastFm() {
+    const [recentTrack, setRecentTrack] = useState<Info | null>(null)
+    const [topTrack, setTopTrack] = useState<Info | null>(null)
+    const [topArtist, setTopArtist] = useState<Info | null>(null)
+    const [topAlbum, setTopAlbum] = useState<Info | null>(null)
 
     const fetchRecentTrack = async () => {
         const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=bopieee754&api_key=${API_KEY}&format=json&limit=1`)
-        
+
         if (response.ok) {
             const data = await response.json()
             setRecentTrack(data.recenttracks.track[0])
-            console.log(data.recenttracks.track[0])
         }
     }
 
-    const fetchAlbumInfo = async (mbid: string) => {
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid=${mbid}&api_key=${API_KEY}&format=json`)
+    const fetchAlbumInfo = async (artist: string, album: string) => {
+        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artist}&album=${album}&api_key=${API_KEY}&format=json`)
 
         if (response.ok) {
             const data = await response.json()
             setTopAlbum(data.album)
-            console.log("top album", data.album)
         }
+    }
+
+    const fetchTopAlbums = async (artist: string) => {
+        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${artist}&api_key=${API_KEY}&format=json`)
+
+        if (response.ok) {
+            const data = await response.json()
+            return data
+        }
+
+        return null
     }
 
     const fetchTopAlbum = async () => {
         const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=bopieee754&api_key=${API_KEY}&format=json`)
-        
+
         if (response.ok) {
             const data = await response.json()
-            const albumMbid = data.weeklyalbumchart.album[0].mbid
-            // console.log("top album", album)
-            // // setTopAlbum(data.weeklyalbumchart.album[0])
-            // const albumInfo = await fetchAlbumInfo(album.name, album.artist["#text"])
-            // console.log("album", albumInfo)
-            fetchAlbumInfo(albumMbid)
+            const album = data.weeklyalbumchart.album[0]
+            fetchAlbumInfo(album.artist["#text"], album.name)
         }
     }
 
     const fetchTopTrack = async () => {
         const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=bopieee754&api_key=${API_KEY}&format=json`)
-        
+
         if (response.ok) {
             const data = await response.json()
             const track = data.weeklytrackchart.track[0]
-
-            const trackInfo = await fetchTrackInfo(track.name, track.artist["#text"])
-            setTopTrack(trackInfo)
-            console.log("track", trackInfo)
+            setTopTrack(track)
         }
     }
 
     const fetchTopArtist = async () => {
         const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=bopieee754&api_key=${API_KEY}&format=json`)
-        
+
         if (response.ok) {
             const data = await response.json()
             const artist = data.weeklyartistchart.artist[0]
 
-            const artistInfo = await fetchArtistInfo(artist.name)
-            setTopArtist(artistInfo)
-            console.log("artist", artistInfo)
+            const topAlbums = await fetchTopAlbums(artist.name)
+
+            if (topAlbums) {
+                const images = topAlbums.topalbums.album[0].image
+
+                artist["image"] = images
+            }
+            setTopArtist(artist)
         }
     }
 

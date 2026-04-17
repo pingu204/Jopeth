@@ -16,20 +16,20 @@ const LastFm = () => {
 			value: topAlbum?.name,
 		},
 		{
-			image: topTrack?.artworkUrl100,
+			image: topTrack?.image[1]["#text"],
 			title: "Top Track",
-			value: topTrack?.trackName,
+			value: topTrack?.name,
 		},
 		{
-			image: topArtist?.artworkUrl100,
+			image: topArtist?.image[1]["#text"],
 			title: "Top Artist",
-			value: topArtist?.artistName,
+			value: topArtist?.name,
 		},
 	]
 
 	return (
 		<>
-			<div className="relative hidden xl:flex xl:flex-col">
+			<div className="bg-red-500 relative hidden xl:flex xl:flex-col">
 				{/* <a href="https://www.last.fm/user/bopieee754">
 					<img
 						src="https://lastfm-recently-played.vercel.app/api?user=bopieee754"
@@ -53,8 +53,6 @@ const LastFm = () => {
 									}
 								</span>
 								<span className="text-xs flex gap-0.5 justify-end truncate text-left">
-									{recentTrack.artist["#text"]}
-									<span>•</span>
 									{recentTrack.name}
 								</span>
 							</div>
@@ -62,8 +60,8 @@ const LastFm = () => {
 						</div>}
 					</span>
 					<div className="flex flex-col divide-y-1 divide-white/30">
-						{topFields.map(({image, title, value}) => 
-							<div className="px-3 py-3 last:pb-0 first:pt-0 flex gap-2 items-center">
+						{topFields.map(({image, title, value}, index) => 
+							<div key={index} className="px-3 py-3 last:pb-0 first:pt-0 flex gap-2 items-center">
 								<div className="">
 									<img src={image} className="h-8 w-8 object-cover rounded-sm"></img>
 								</div>

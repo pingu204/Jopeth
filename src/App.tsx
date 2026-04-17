@@ -50,7 +50,16 @@ function App() {
 			{/* <Loader/> */}
 			<motion.div 
 				className="fixed z-1000 bg-green-500 h-[5px] top-0 left-0 right-0"
-				style={{ scaleX: scrollYProgress, originX: 0 }}/>
+				style={{ scaleX: scrollYProgress, originX: 0 }}
+            />
+            <motion.div
+                className="relative"
+            >
+                <div className="fixed left-1/2 bottom-0 -translate-x-1/2 mb-4 px-4 py-1 rounded-full
+                bg-black text-white font-medium z-1000 shadow-md ring-4 ring-green-500/20">
+                    Scroll down to see more!
+                </div>
+            </motion.div>
 			<div
 				className="bg-repeat-none bg-fixed bg-size-[140%] overflow-x-hidden"
 				style={{

@@ -14,7 +14,6 @@ const HistoryItem = ({
 	const end_split = end_date.split("-");
 	const end = new Date(Number(end_split[1]), Number(end_split[0]) - 1);
 	const ongoing = new Date().getTime() <= end.getTime();
-	console.log(role, ongoing);
 
     const formatter = new Intl.DateTimeFormat("en", {
         month: "short",
