@@ -49,9 +49,9 @@ function App() {
 		<>
 			{/* <Loader/> */}
 			<ScrollProgress />
-            <ScrollIndicator />
+            {/* <ScrollIndicator /> */}
 			<div
-				className="bg-repeat-none bg-fixed bg-size-[140%] overflow-x-hidden"
+				className="bg-repeat-none bg-fixed bg-size-[250%] lg:bg-size-[140%] overflow-x-hidden"
 				style={{
 					backgroundImage:
 						"url(" +
@@ -63,7 +63,7 @@ function App() {
 				<LastFm />
 				<div className="w-screen flex flex-col gap-8">
 					<Plumbob />
-					<div className="w-full xl:w-[50%] place-self-center bg-white rounded-4xl px-8 lg:px-24 py-10 lg:py-20 animate-glow flex flex-col">
+					<div className="w-full lg:w-[75%] xl:w-[50%] place-self-center bg-white rounded-4xl px-8 lg:px-24 py-10 lg:py-20 animate-glow flex flex-col">
 						<div className="text-center">
 							<div className="mb-6">
 								<Typewriter />
