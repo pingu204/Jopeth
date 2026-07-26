@@ -20,7 +20,7 @@ const HistoryItem = ({
         year: "numeric",
     })
 
-    const dateRange = `${formatter.format(start)} - ${formatter.format(end)}`
+    const dateRange = `${formatter.format(start)} - ${end.getTime() < new Date().getTime() ? formatter.format(end) : "Present"}`
 
 	const [expanded, setExpanded] = useState(false);
 
@@ -33,7 +33,7 @@ const HistoryItem = ({
 				<div>
 					<img
 						src={img}
-						className="w-10 aspect-square rounded-md border-1 border-gray-200 p-1"
+						className="w-10 aspect-square rounded-lg border-1 border-gray-200 p-1"
 						alt={role}
 					></img>
 				</div>

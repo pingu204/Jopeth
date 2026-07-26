@@ -16,7 +16,7 @@ const Intro = () => {
 				<span className="font-bold cursor-pointer" onClick={callback}>
 					{names[idx]}
 				</span>
-				! I'm a Computer Science junior with a passion for solving
+				! I'm a Computer Science graduate with a passion for solving
 				problems, whether they challenge my creative thinking or
 				analytical skills. My programming background and experience
 				empower me to develop software that prioritizes user needs and

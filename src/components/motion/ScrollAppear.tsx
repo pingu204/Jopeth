@@ -6,7 +6,7 @@ interface Props {
     className?: string
 }
 
-const ScrollAppear = ({delay=0.3, className, children}: Props) => {
+const ScrollAppear = ({delay=0.1, className, children}: Props) => {
     return (
         <motion.div
             className={className}
@@ -15,7 +15,7 @@ const ScrollAppear = ({delay=0.3, className, children}: Props) => {
             transition={{
                 delay: delay,
             }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
         >
             {children}
         </motion.div>

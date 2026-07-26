@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { content } from "../../data/content";
-import { education, socials, techStack } from "../../data/data";
+import { education, experience, socials, techStack } from "../../data/data";
 import { getUrl } from "../../utils/getUrl";
 import Paragraph from "../text/Paragraph";
 import Title from "../text/Title";
@@ -11,29 +11,84 @@ import Category from "../tech-stack/Category";
 import ScrollAppear from "../motion/ScrollAppear";
 import SectionHeader from "../SectionHeader";
 import { motion } from "motion/react"
+// import Plumbob from "../Plumbob";
+import { ActionButton } from "../ActionButton";
 
 const Profile = () => {
 	return (
 		<motion.div exit={{ opacity: 0 }}>
 			<div className="w-full flex flex-col text-sm/6 lg:text-base xl:text-base/7">
 				<ScrollAppear>
-				<img
-					src={getUrl("assets/profile.png")}
-					className="w-[200px] aspect-square object-cover rounded-full shadow-xl place-self-center my-4 hover:scale-105 hover:shadow-lg hover:shadow-[#1bb133]/20"
-				></img>
+                <div className="py-8 relative group">
+                    <span className="z-100 group-hover:block absolute left-[50%] top-0 translate-x-[-50%] translate-y-[50%] lg:translate-y-[20%] w-[30px] lg:*:w-[30px]">
+						<img src={getUrl("assets/plumbob.gif")} />  
+                    </span>
+                    <span className="group-hover:opacity-100 opacity-0 absolute right-[57%] top-[25%] transition-all hover:-translate-y-1">
+                        <ActionButton 
+                            iconName="Rocketship"
+                            text="Ask about Interests"
+							onClick={() => {
+								const el = document.getElementById("interests");
+								if (el) el.scrollIntoView({ behavior: "smooth" });
+							}}
+                        />
+                    </span>
+                    <span className="group-hover:opacity-100 opacity-0 absolute right-[64%] top-[45%] transition-all hover:-translate-y-1">
+                        <ActionButton 
+                            iconName="Books"
+                            text="Ask about Alma Mater"
+                        />
+                    </span>
+                    <span className="group-hover:opacity-100 opacity-0 absolute right-[59%] bottom-[25%] transition-all hover:-translate-y-1">
+                        <ActionButton 
+                            iconName="Coffee"
+                            text="Ask about Career"
+                        />
+                    </span>
+                    <span className="group-hover:opacity-100 opacity-0 absolute left-[57%] top-[25%] transition-all hover:-translate-y-1">
+                        <ActionButton 
+                            iconName="ComputerKey"
+                            text="Inspect Source Code"
+                        />
+                    </span>
+
+                    <span className="group-hover:opacity-100 opacity-0 absolute left-[64%] top-[45%] transition-all hover:-translate-y-1">
+                        <ActionButton 
+                            iconName="Triangle"
+                            text="Talk about Design"
+                        />
+                    </span>
+                    <span className="group-hover:opacity-100 opacity-0 absolute left-[59%] bottom-[25%] transition-all hover:-translate-y-1">
+                        <ActionButton 
+                            iconName="Headphones"
+                            text="Enthuse about Music"
+                        />
+                    </span>
+                    {/* <span className="absolute left-[50%]">
+                        <ActionButton />
+                    </span> */}
+                    <img
+                        src={getUrl("assets/profile.jpg")}
+                        className="w-[200px] aspect-square object-cover rounded-full place-self-center my-4"
+                    />
+                </div>
 				</ScrollAppear>
                 <ScrollAppear>
 				<Intro />
                 </ScrollAppear>
 			</div>
-			<div className="w-full mt-16 mb-8">
+			<div id="interests" className="w-full mt-16 mb-8 scroll-mt-24">
 				<Title>
-					I'm a Full-Stack!{" "}
+					I'm a Full-Stack{" "}
 					<span className="line-through">Overflow</span>
 					<br></br>Developer & Designer
 					<br></br>ദി(˵ •̀ ᴗ - ˵ ) ✧
 				</Title>
 				<Paragraph>{content.INTRO}</Paragraph>
+			</div>
+            <div className="w-full flex flex-col gap-6 mb-8">
+				<SectionHeader>Experience</SectionHeader>
+				<History historyItems={experience} />
 			</div>
 			<div className="w-full flex flex-col gap-6 mb-8">
 				<SectionHeader>Education</SectionHeader>
@@ -41,7 +96,7 @@ const Profile = () => {
 			</div>
 			<div className="w-full flex flex-col gap-6">
 				<SectionHeader>Tech Stack</SectionHeader>
-				<div className="grid md:grid-cols-2 gap-4">
+				<div className="grid md:grid-cols-1 gap-4">
 					{techStack.map((entry, index) => (
                         <ScrollAppear delay={(index+1)*0.3}>
 						<div className="bg-gray-100/50 rounded-md p-4">

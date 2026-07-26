@@ -15,7 +15,7 @@ const GalleryModal = ({ modalId, entry }: GalleryModalProps) => {
 		<>
 			<dialog id={modalId} className="modal">
 				<div className="modal-box max-w-full w-[90%] lg:w-[70%] h-[80%] backdrop-blur-md bg-[rgb(0,0,0,0.8)] border-1 border-white/20 text-white p-6 lg:p-8">
-					<div className="grid xl:grid-cols-[70%_auto] h-full gap-4 lg:gap-8 xl:gap-4 overflow-x-visible overflow-y-auto">
+					<div className="grid lg:grid-cols-[70%_auto] h-full gap-4 lg:gap-8 xl:gap-4 overflow-x-visible overflow-y-auto">
 						<div className="order-last xl:order-first lg:h-full lg:overflow-y-auto rounded-sm">
 							{entry.images.map((image) => (
 								<img
