@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { TABS } from "../enums";
+import { useTabStore } from "../stores/TabStore";
 
 export default function useTabs() {
-	const [currentTab, setCurrentTab] = useState(TABS.ABOUT_ME);
+    const currentTab = useTabStore((state) => state.currentTab)
+    const setCurrentTab = useTabStore((state) => state.setCurrentTab)
 
-	return { currentTab, setCurrentTab };
+    // const [currentTab, setCurrentTab] = useState(TABS.ABOUT_ME);
+
+    return { currentTab, setCurrentTab };
 }
