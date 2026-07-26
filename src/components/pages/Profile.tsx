@@ -31,7 +31,7 @@ const Profile = () => {
                         className="w-[200px] aspect-square object-cover rounded-full place-self-center my-4"
                         onClick={() => setVisible((prev) => !prev)}
                     />
-                    {!visible && <span className="w-full absolute bottom-2 left-[50%] translate-x-[-50%] md:flex lg:hidden justify-center text-xs font-medium text-gray-400 animate-bounce">
+                    {!visible && <span className="w-full absolute bottom-2 left-[50%] translate-x-[-50%] hidden md:flex lg:hidden justify-center text-xs font-medium text-gray-400 animate-bounce">
                         Tap to know more
                     </span>}
                 </div>

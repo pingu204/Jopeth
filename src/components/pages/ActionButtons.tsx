@@ -54,7 +54,7 @@ export const ActionButtons = ({
 
     return (<>       
     {actionsWithPositioning.map(({iconName, text, onClick, position}, index) => 
-        <span key={index} style={position} className={`${visible ? "opacity-100" : "opacity-0"} group-hover:opacity-100 opacity-0 absolute transition-all hover:-translate-y-1 whitespace-nowrap w-max`}>
+        <span key={index} style={position} className={`${visible ? "opacity-100 lg:opacity-0" : "opacity-0"} hidden md:block group-hover:opacity-100 opacity-0 absolute transition-all hover:-translate-y-1 whitespace-nowrap w-max`}>
             <ActionButton
                 iconName={iconName}
                 text={text}
