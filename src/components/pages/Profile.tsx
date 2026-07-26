@@ -13,8 +13,18 @@ import SectionHeader from "../SectionHeader";
 import { motion } from "motion/react"
 // import Plumbob from "../Plumbob";
 import { ActionButton } from "../ActionButton";
+import { useTabStore } from "../../stores/TabStore";
+import { TABS } from "../../enums";
 
 const Profile = () => {
+    const setCurrentTab = useTabStore((state) => state.setCurrentTab)
+
+    const scrollToView = (id: string) => {
+        const el = document.getElementById(id);
+
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
 	return (
 		<motion.div exit={{ opacity: 0 }}>
 			<div className="w-full flex flex-col text-sm/6 lg:text-base xl:text-base/7">
@@ -27,28 +37,28 @@ const Profile = () => {
                         <ActionButton 
                             iconName="Rocketship"
                             text="Ask about Interests"
-							onClick={() => {
-								const el = document.getElementById("interests");
-								if (el) el.scrollIntoView({ behavior: "smooth" });
-							}}
+							onClick={() => scrollToView("interests")}
                         />
                     </span>
                     <span className="group-hover:opacity-100 opacity-0 absolute right-[64%] top-[45%] transition-all hover:-translate-y-1">
                         <ActionButton 
                             iconName="Books"
                             text="Ask about Alma Mater"
+                            onClick={() => scrollToView("education")}
                         />
                     </span>
                     <span className="group-hover:opacity-100 opacity-0 absolute right-[59%] bottom-[25%] transition-all hover:-translate-y-1">
                         <ActionButton 
                             iconName="Coffee"
                             text="Ask about Career"
+                            onClick={() => scrollToView("experience")}
                         />
                     </span>
                     <span className="group-hover:opacity-100 opacity-0 absolute left-[57%] top-[25%] transition-all hover:-translate-y-1">
                         <ActionButton 
                             iconName="ComputerKey"
                             text="Inspect Source Code"
+                            onClick={() => setCurrentTab(TABS.TECH)}
                         />
                     </span>
 
@@ -56,17 +66,15 @@ const Profile = () => {
                         <ActionButton 
                             iconName="Triangle"
                             text="Talk about Design"
+                            onClick={() => setCurrentTab(TABS.GRAPHIC_DESIGN)}
                         />
                     </span>
                     <span className="group-hover:opacity-100 opacity-0 absolute left-[59%] bottom-[25%] transition-all hover:-translate-y-1">
                         <ActionButton 
                             iconName="Headphones"
-                            text="Enthuse about Music"
+                            text="View Tech Stack"
                         />
                     </span>
-                    {/* <span className="absolute left-[50%]">
-                        <ActionButton />
-                    </span> */}
                     <img
                         src={getUrl("assets/profile.jpg")}
                         className="w-[200px] aspect-square object-cover rounded-full place-self-center my-4"
@@ -86,11 +94,11 @@ const Profile = () => {
 				</Title>
 				<Paragraph>{content.INTRO}</Paragraph>
 			</div>
-            <div className="w-full flex flex-col gap-6 mb-8">
+            <div id="experience" className="w-full flex flex-col gap-6 mb-8 scroll-mt-24">
 				<SectionHeader>Experience</SectionHeader>
 				<History historyItems={experience} />
 			</div>
-			<div className="w-full flex flex-col gap-6 mb-8">
+			<div id="education" className="w-full flex flex-col gap-6 mb-8 scroll-mt-24">
 				<SectionHeader>Education</SectionHeader>
 				<History historyItems={education} />
 			</div>
