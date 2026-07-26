@@ -55,7 +55,7 @@ function App() {
 				style={{
 					backgroundImage:
 						"url(" +
-						getUrl("assets/lazy.png") +
+						getUrl("assets/lazy.webp") +
 						")",
 				}}
 			>

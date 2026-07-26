@@ -15,12 +15,12 @@ export const designs: GalleryItem[] = [
         title: "UPD Computer Science Bootcamp 10.0 Merchandise",
         description:
             "I created t-shirt and lanyard designs for Bootcamp 10.0, an annual event for freshmen of the University of the Philippines-Diliman Department of Computer Science. Working closely with the event organizers, I conceptualized a cohesive brand that captures the aesthetic of computer science students while ensuring that the visual elements used in the design aligned with the theme of the event.",
-        cover: "assets/Designs/DCSMerch/cover.png",
+        cover: "assets/Designs/DCSMerch/cover.webp",
         images: [
-            "assets/Designs/DCSMerch/mockup_white.png",
-            "assets/Designs/DCSMerch/mockup_isko.png",
-            "assets/Designs/DCSMerch/mockup_blurple.png",
-            "assets/Designs/DCSMerch/mockup_dcs.png",
+            "assets/Designs/DCSMerch/mockup_white.webp",
+            "assets/Designs/DCSMerch/mockup_isko.webp",
+            "assets/Designs/DCSMerch/mockup_blurple.webp",
+            "assets/Designs/DCSMerch/mockup_dcs.webp",
         ],
         platforms: ["illustrator"],
         tags: [
@@ -44,8 +44,8 @@ export const designs: GalleryItem[] = [
         title: "PSHS-MC Senior Year Batch Shirt | A.Y. 20-21",
         description:
             "I once participated in a batch shirt design competition during my senior year in high school and was selected as the winner. The shirt's design draws inspiration from vintage and retro illustrations, aiming to evoke a sense of nostalgia.",
-        cover: "assets/Designs/G11BatchShirt/shirt.png",
-        images: ["assets/Designs/G11BatchShirt/details.png"],
+        cover: "assets/Designs/G11BatchShirt/shirt.webp",
+        images: ["assets/Designs/G11BatchShirt/details.webp"],
         tags: [
             "Merchandise Design",
             "Vector Art",
@@ -64,11 +64,11 @@ export const designs: GalleryItem[] = [
         title: "Typography Poster Collection",
         description:
             "As someone with an expansive bandwidth for thoughts and ideas, I decided to create posters out of anecdotes in my life. Here I utilize design to evoke a certain feeling, support my faves, and generally anything under the sun!",
-        cover: "assets/Designs/Typography Posters/espresso_q.png",
+        cover: "assets/Designs/Typography Posters/espresso_q.webp",
         images: [
-            "assets/Designs/Typography Posters/espresso_q.png",
-            "assets/Designs/Typography Posters/email rant.png",
-            "assets/Designs/Typography Posters/glimpse.png",
+            "assets/Designs/Typography Posters/espresso_q.webp",
+            "assets/Designs/Typography Posters/email rant.webp",
+            "assets/Designs/Typography Posters/glimpse.webp",
         ],
         platforms: ["photoshop"],
         links: [
@@ -84,13 +84,13 @@ export const designs: GalleryItem[] = [
         title: "Vector Illustrations Collection",
         description:
             "Some vector illustrations that I made, including portraits and scenery.",
-        cover: "assets/Designs/Vectors/rainy full.png",
+        cover: "assets/Designs/Vectors/rainy full.webp",
         images: [
-            "assets/Designs/Vectors/rainy full.png",
-            "assets/Designs/Vectors/muon_color.png",
-            "assets/Designs/Vectors/haknyeon.png",
-            "assets/Designs/Vectors/yoohyeon.png",
-            "assets/Designs/Vectors/jennie.png",
+            "assets/Designs/Vectors/rainy full.webp",
+            "assets/Designs/Vectors/muon_color.webp",
+            "assets/Designs/Vectors/haknyeon.webp",
+            "assets/Designs/Vectors/yoohyeon.webp",
+            "assets/Designs/Vectors/jennie.webp",
         ],
         platforms: ["illustrator"],
         links: [
@@ -106,10 +106,10 @@ export const designs: GalleryItem[] = [
         title: "PSHS-MC 'Ang Lagablab' School Paper Spreads | A.Y. 21-22",
         description:
             "For this project, I worked with a team of designers in creating the Filipino publication of Philippine Science High School - Main Campus that school year. I mainly worked on two spreads—one of the news pages and one of the editorial pages.",
-        cover: "assets/Designs/Lagablab/cover.png",
+        cover: "assets/Designs/Lagablab/cover.webp",
         images: [
-            "assets/Designs/Lagablab/B-1.png",
-            "assets/Designs/Lagablab/H-1.png",
+            "assets/Designs/Lagablab/B-1.webp",
+            "assets/Designs/Lagablab/H-1.webp",
         ],
         platforms: ["indesign", "photoshop"],
         tags: ["Print Design", "Typography", "Digital Art"],
@@ -118,8 +118,8 @@ export const designs: GalleryItem[] = [
         title: "Leni-Kiko Jeepney Signs",
         description:
             "In solidarity with the Leni-Kiko tandem during the 2022 Presidential Elections in the Philippines, I made Jeepney signs that reflect their mass-centered campaign.",
-        cover: "assets/Designs/LeniKiko/cover.png",
-        images: ["assets/Designs/LeniKiko/cover.png"],
+        cover: "assets/Designs/LeniKiko/cover.webp",
+        images: ["assets/Designs/LeniKiko/cover.webp"],
         platforms: ["photoshop", "illustrator"],
         tags: ["Digital Art", "Typography", "Poster Design", "Print Design"],
     },
@@ -138,11 +138,79 @@ export const designTags: string[] = [
 
 export const tech: GalleryItem[] = [
     {
+        title: "Dynamic Lyric Card Generator",
+        description:
+            "I built a Spotify-inspired lyric card generator using React, Vite, and Tailwind CSS, enabling users to search tracks, extract specific lyric snippets, and export custom image cards for social sharing. This integrates external REST APIs, using the Last.fm API for real-time track searching and LRCLib for synchronized lyrics fetching.",
+        cover: "assets/Tech/LyricCardGenerator/cover.webp",
+        images: [
+            "assets/Tech/LyricCardGenerator/cover.webp",
+            "assets/Tech/LyricCardGenerator/img-1.webp",
+            "assets/Tech/LyricCardGenerator/img-2.webp",
+            "assets/Tech/LyricCardGenerator/img-3.webp",
+            "assets/Tech/LyricCardGenerator/img-4.webp",
+        ],
+        platforms: ["reactjs", "ts", "tailwind"],
+        tags: ["Frontend Development", "API Integration", "UI/UX Design"],
+        links: [
+            {
+                message: "View Deployed Website",
+                url: "https://lyrics.jopeth.me",
+            },
+            {
+                message: "View Repository",
+                platform: "github",
+                url: "https://github.com/pingu204/spotify-lyric-card-generator",
+            },
+        ],
+    },
+    {
+        title: "RFID-Powered Healthcare System",
+        description:
+            "As part of a Digital Health elective, my team and I created a mockup for an RFID-powered healthcare system that builds on existing RFID student identification cards, such as the UP ID. It leverages the power of the RFID student card, transforming it into a universal card that accommodates healthcare and student wellness services in the university.",
+        cover: "assets/Tech/Tapat/cover.webp",
+        images: [
+            "assets/Tech/Tapat/cover.webp",
+            "assets/Tech/Tapat/img-1.webp",
+            "assets/Tech/Tapat/img-2.webp",
+            "assets/Tech/Tapat/img-3.webp",
+        ],
+        platforms: ["figma"],
+        tags: ["UI/UX Design"],
+        links: [
+            {
+                message: "View Prototype",
+                platform: "figma",
+                url: "https://www.figma.com/proto/2dYFHi9kpwzBjndQodFBpi/CS-173-Prototype?node-id=14-74&p=f&t=inp0Ec1dxbBJac8x-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=14%3A74&show-proto-sidebar=1",
+            },
+        ],
+    },
+    {
+        title: "NSRI Website Revamp",
+        description:
+            "As part of our academic intership requirement in CS 199, my team and I were tasked to revamp the website of the Natural Sciences Research Institute in UP Diliman. I spearheaded the website re-design, offering a sleek and modern touch to the previous one.",
+        cover: "assets/Tech/NSRI/nsri.webp",
+        images: [
+            "assets/Tech/NSRI/nsri.webp",
+            "assets/Tech/NSRI/cover.webp",
+            "assets/Tech/NSRI/img-1.webp",
+            "assets/Tech/NSRI/img-2.webp",
+            "assets/Tech/NSRI/img-3.webp",
+        ],
+        platforms: ["django", "tailwind", "figma"],
+        tags: ["Front-end Development", "Web Development", "UI/UX Design"],
+        links: [
+            {
+                message: "View Deployed Site",
+                url: "https://nsri.upd.edu.ph/",
+            },
+        ],
+    },
+    {
         title: "PilipiNuts 2024",
         description:
             "I spearheaded the design of this website, which collates promising data science projects that expose the truths, trends, and turning points in the Philippines' path to sustainable development, all aligning with the United Nations' Global Goals. Furthermore, I implemented the mockup of the website using SvelteKit and Tailwind, mainly tasked with working on the About Us page.",
-        cover: "assets/Tech/PilipiNuts/cover.png",
-        images: ["assets/Tech/PilipiNuts/cover.png"],
+        cover: "assets/Tech/PilipiNuts/cover.webp",
+        images: ["assets/Tech/PilipiNuts/cover.webp"],
         platforms: ["svelte", "tailwind", "figma"],
         tags: ["Front-end Development", "Web Development", "UI/UX Design"],
         links: [
@@ -161,13 +229,13 @@ export const tech: GalleryItem[] = [
         title: "RescueQuick",
         description:
             "Collaborated with a team of developers in developing an AI-powered flood monitoring system for an Internet of Things (IoT) competition, mainly working on the front-end side (i.e., implementing the web dashboard). I also established the branding of the web app, making use of location tags to create an RQ logotype.",
-        cover: "assets/Tech/RescueQuick/cover.png",
+        cover: "assets/Tech/RescueQuick/cover.webp",
         images: [
-            "assets/Tech/RescueQuick/cover.png",
-            "assets/Tech/RescueQuick/poster.png",
-            "assets/Tech/RescueQuick/img-1.png",
-            "assets/Tech/RescueQuick/img-2.png",
-            "assets/Tech/RescueQuick/img-3.png",
+            "assets/Tech/RescueQuick/cover.webp",
+            "assets/Tech/RescueQuick/poster.webp",
+            "assets/Tech/RescueQuick/img-1.webp",
+            "assets/Tech/RescueQuick/img-2.webp",
+            "assets/Tech/RescueQuick/img-3.webp",
         ],
         platforms: ["django", "python", "tailwind", "figma", "illustrator"],
         tags: [
@@ -187,8 +255,8 @@ export const tech: GalleryItem[] = [
         title: "Making Every Peso Count",
         description:
             "Collaborated with a group of students for a data science class in analyzing the discrepancies in the regional budget allocation of the Philippines towards the 10th Sustainable Development Goal (Reduced Inequalities). I primarily worked on the front-end side—creating a logo to represent the project and developing a portfolio website that presents the background, findings, and takeaways of the said study.\n\nAwarded 'Best Design', 'Best Story', 'Outstanding Analysis', 'Outstanding Interactive Visuals' within the class",
-        cover: "assets/Tech/MakingEveryPesoCount/cover.png",
-        images: ["assets/Tech/MakingEveryPesoCount/cover.png"],
+        cover: "assets/Tech/MakingEveryPesoCount/cover.webp",
+        images: ["assets/Tech/MakingEveryPesoCount/cover.webp"],
         platforms: [
             "html",
             "css",
@@ -220,14 +288,14 @@ export const tech: GalleryItem[] = [
         title: "Automated Planner for Efficient Scheduling",
         description:
             "Led a team of developers in creating a web application that aids the students of UP Diliman in curating their semestral schedules. The application takes in the list of classes a user needs and generates viable schedules for them. With just a few clicks, users can now have a glimpse of their possible schedules, easily mix and match classes, and even save these schedules for future reference!",
-        cover: "assets/Tech/APES/cover.png",
+        cover: "assets/Tech/APES/cover.webp",
         images: [
-            "assets/Tech/APES/cover.png",
-            "assets/Tech/APES/img-1.png",
-            "assets/Tech/APES/img-2.png",
-            "assets/Tech/APES/img-3.png",
-            "assets/Tech/APES/img-4.png",
-            "assets/Tech/APES/img-5.png",
+            "assets/Tech/APES/cover.webp",
+            "assets/Tech/APES/img-1.webp",
+            "assets/Tech/APES/img-2.webp",
+            "assets/Tech/APES/img-3.webp",
+            "assets/Tech/APES/img-4.webp",
+            "assets/Tech/APES/img-5.webp",
         ],
         platforms: ["django", "python", "bootstrap", "figma"],
         tags: [
@@ -258,10 +326,10 @@ export const tech: GalleryItem[] = [
         title: "Spotify Stats Generator",
         description:
             "For this project, I developed a program that generates a user's top artists and songs of all time from their provided Spotify streaming history data in JSON format. I made use of the Pillow Python library to create the output image while making calls to the Spotify API for the details of a particular track or artist (e.g., album cover, release date, etc.).",
-        cover: "assets/Tech/Bopiefy/cover.png",
+        cover: "assets/Tech/Bopiefy/cover.webp",
         images: [
-            "assets/Tech/Bopiefy/cover.png",
-            "assets/Tech/Bopiefy/img-1.png",
+            "assets/Tech/Bopiefy/cover.webp",
+            "assets/Tech/Bopiefy/img-1.webp",
         ],
         platforms: ["python", "spotify"],
         tags: [
@@ -282,8 +350,8 @@ export const tech: GalleryItem[] = [
         title: "SafetyPal: A Crime Watcher App",
         description:
             "For an introduction to computer science class, I spearheaded the project that entails the prototyping of an application that addresses a real-world problem. My team and I came up with SafetyPal, a crime watcher mobile app. I led the creation of the prototype in Figma, ensuring that the interfaces are user-centered and intuitive.\n\n",
-        cover: "assets/Tech/SafetyPal/cover.png",
-        images: ["assets/Tech/SafetyPal/cover.png"],
+        cover: "assets/Tech/SafetyPal/cover.webp",
+        images: ["assets/Tech/SafetyPal/cover.webp"],
         platforms: ["figma"],
         tags: ["High-Fidelity Prototyping", "UI/UX Design", "Branding"],
         links: [
@@ -298,8 +366,8 @@ export const tech: GalleryItem[] = [
         title: "Cybot: A School Management Discord Bot",
         description:
             "For my research capstone project in high school, I developed a Discord bot configuration that caters to the needs of academic servers. This was in the context of online classes when the pandemic was at its high; thus, some of the key features of the bot included announcements, attendance checking, forums, and consultations.",
-        cover: "assets/Tech/Cybot/cover.png",
-        images: ["assets/Tech/Cybot/cover.png"],
+        cover: "assets/Tech/Cybot/cover.webp",
+        images: ["assets/Tech/Cybot/cover.webp"],
         platforms: ["python", "discord"],
         tags: ["Bot Development", "Discord.py"],
         links: [
