@@ -11,74 +11,29 @@ import Category from "../tech-stack/Category";
 import ScrollAppear from "../motion/ScrollAppear";
 import SectionHeader from "../SectionHeader";
 import { motion } from "motion/react"
-// import Plumbob from "../Plumbob";
-import { ActionButton } from "../ActionButton";
-import { useTabStore } from "../../stores/TabStore";
-import { TABS } from "../../enums";
+import { useState } from "react";
+import { ActionButtons } from "./ActionButtons";
 
 const Profile = () => {
-    const setCurrentTab = useTabStore((state) => state.setCurrentTab)
-
-    const scrollToView = (id: string) => {
-        const el = document.getElementById(id);
-
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
+    const [visible, setVisible] = useState(false)
 
 	return (
 		<motion.div exit={{ opacity: 0 }}>
 			<div className="w-full flex flex-col text-sm/6 lg:text-base xl:text-base/7">
 				<ScrollAppear>
-                <div className="py-8 relative group">
-                    <span className="z-100 group-hover:block absolute left-[50%] top-0 translate-x-[-50%] translate-y-[50%] lg:translate-y-[20%] w-[30px] lg:*:w-[30px]">
+                <div className="pt-8 pb-6 lg:pb-4 relative group">
+                    <span className="z-100 group-hover:block absolute left-[50%] top-0 translate-x-[-50%] translate-y-[30%] lg:translate-y-[20%] w-[30px] lg:*:w-[30px]">
 						<img src={getUrl("assets/plumbob.gif")} />  
                     </span>
-                    <span className="group-hover:opacity-100 opacity-0 absolute right-[57%] top-[25%] transition-all hover:-translate-y-1">
-                        <ActionButton 
-                            iconName="Rocketship"
-                            text="Ask about Interests"
-							onClick={() => scrollToView("interests")}
-                        />
-                    </span>
-                    <span className="group-hover:opacity-100 opacity-0 absolute right-[64%] top-[45%] transition-all hover:-translate-y-1">
-                        <ActionButton 
-                            iconName="Books"
-                            text="Ask about Alma Mater"
-                            onClick={() => scrollToView("education")}
-                        />
-                    </span>
-                    <span className="group-hover:opacity-100 opacity-0 absolute right-[59%] bottom-[25%] transition-all hover:-translate-y-1">
-                        <ActionButton 
-                            iconName="Coffee"
-                            text="Ask about Career"
-                            onClick={() => scrollToView("experience")}
-                        />
-                    </span>
-                    <span className="group-hover:opacity-100 opacity-0 absolute left-[57%] top-[25%] transition-all hover:-translate-y-1">
-                        <ActionButton 
-                            iconName="ComputerKey"
-                            text="Inspect Source Code"
-                            onClick={() => setCurrentTab(TABS.TECH)}
-                        />
-                    </span>
-
-                    <span className="group-hover:opacity-100 opacity-0 absolute left-[64%] top-[45%] transition-all hover:-translate-y-1">
-                        <ActionButton 
-                            iconName="Triangle"
-                            text="Talk about Design"
-                            onClick={() => setCurrentTab(TABS.GRAPHIC_DESIGN)}
-                        />
-                    </span>
-                    <span className="group-hover:opacity-100 opacity-0 absolute left-[59%] bottom-[25%] transition-all hover:-translate-y-1">
-                        <ActionButton 
-                            iconName="Headphones"
-                            text="View Tech Stack"
-                        />
-                    </span>
+                    <ActionButtons setVisible={setVisible} visible={visible} />
                     <img
                         src={getUrl("assets/profile.jpg")}
                         className="w-[200px] aspect-square object-cover rounded-full place-self-center my-4"
+                        onClick={() => setVisible((prev) => !prev)}
                     />
+                    {!visible && <span className="w-full absolute bottom-2 left-[50%] translate-x-[-50%] md:flex lg:hidden justify-center text-xs font-medium text-gray-400 animate-bounce">
+                        Tap to know more
+                    </span>}
                 </div>
 				</ScrollAppear>
                 <ScrollAppear>
