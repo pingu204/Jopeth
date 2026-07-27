@@ -154,7 +154,7 @@ export const tech: GalleryItem[] = [
         links: [
             {
                 message: "View Deployed Website",
-                url: "https://lyrics.jopeth.me",
+                url: "https://lyrics.jopeth.xyz",
             },
             {
                 message: "View Repository",

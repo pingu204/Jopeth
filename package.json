@@ -2,7 +2,7 @@
 	"name": "my-app",
 	"private": false,
 	"version": "0.0.0",
-	"homepage": "https://jopeth.me",
+	"homepage": "https://jopeth.xyz",
 	"type": "module",
 	"scripts": {
 		"predeploy": "npm run build",
